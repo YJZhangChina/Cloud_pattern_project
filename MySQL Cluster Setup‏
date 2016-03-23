@@ -1,0 +1,59 @@
+**** MySQL Cluster Setup‏  ****
+
+1- mkdir -p /opt/mysqlcluster/deploy
+2- cd /opt/mysqlcluster/deploy
+3- mkdir conf
+4- mkdir mysqld_data
+5- mkdir ndb_data
+6- cd conf
+7- nano my.cnf and enter the following:
+
+[mysqld]
+ndbcluster
+datadir=/opt/mysqlcluster/deploy/mysqld_data
+basedir=/opt/mysqlcluster/home/mysqlc
+port=3306
+
+8- nano config.ini and enter the following:
+
+[ndb_mgmd]
+hostname=172.31.24.149  (Private IP Adress)
+datadir=/home/ubuntu/opt/mysqlcluster/deploy/ndb_data
+nodeid=1
+
+[ndbd default]
+noofreplicas=3
+datadir=/home/ubuntu/opt/mysqlcluster/deploy/ndb_data
+
+[ndbd]
+hostname=172.31.29.112
+nodeid=3
+
+[ndbd]
+hostname=172.31.24.232
+nodeid=4
+
+[ndbd]
+hostname=172.31.25.193
+nodeid=5
+
+[mysqld]
+nodeid=50
+
+
+9- sudo apt-get install libaio1 libaio-dev
+10- wget http://dev.mysql.com/get/Downloads/MySQL-Cluster-7.4/mysql-cluster-gpl-7.4.10-linux-glibc2.5-x86_64.tar.gz
+11- tar -zxf mysql-cluster-gpl-7.4.10-linux-glibc2.5-x86_64.tar.gz
+12- cd mysql-cluster-gpl-7.4.10-linux-glibc2.5-x86_64
+13- scripts/mysql_install_db --user=ubuntu
+14- cd mysql-cluster-gpl-7.4.10-linux-glibc2.5-x86_64/
+15- scripts/mysql_install_db --user=ubuntu
+16- cd mysql-cluster-gpl-7.4.10-linux-glibc2.5-x86_64/bin
+17- ./ndb_mgm
+18- show 
+
+DATA NODES
+-----------------
+follow the same instruction for MGM ...
+
+./ndbd --initial
