@@ -1,27 +1,40 @@
 import mysql.connector
 import time
 
-cnx = mysql.connector.connect(user='root', password='root',
-                              host='localhost',
-                              database='sakila')
+"""
 
+Database info:
 
-cursor = cnx.cursor()
+"""
 
-
-timeA = time.time()
-
-for i in range(1000):
-	cursor.execute("SELECT * FROM film;")
-	row = cursor.fetchall()
-	
-
-latency = time.time() - timeA 
-
-print "Latency: 		", latency
+USER = 'root'
+PASSWORD = 'root'
+HOST = 'localhost'
+DB = 'sakila'
 
 
 
+cnx = mysql.connector.connect(user=USER, password=PASSWORD,
+                              host=HOST,
+                              database=DB)
 
-cursor.close()
+def query(query, nb):
+	cursor = cnx.cursor()
+	timeA = time.time()
+	print "executing: ", query, " for ", nb, "times"
+	for i in range(10000):
+		cursor.execute(query)
+		row = cursor.fetchall()	
+	cursor.close()
+	return time.time() - timeA 
+
+
+
+
+
+
+
+print "Latency: 		", query("SELECT * FROM film;", 10000)
+
+
 cnx.close()
