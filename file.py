@@ -55,7 +55,7 @@ def readQuery(query, nb):
 latencyWrite = writeQuery(100)
 latencyRead = readQuery("SELECT * FROM test;", 1000)
 print latencyWrite
-print "Latency: 		", latency
+print "Latency: 		", latencyRead
 
 
 
