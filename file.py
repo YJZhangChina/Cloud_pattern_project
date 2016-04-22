@@ -39,11 +39,12 @@ def readQuery(query, nb):
 def writeQuery(nb):
 	cursor = cnx.cursor()
 	timeA = time.time()
-
-	print "executing: ", query, " for ", nb, "times"
+	add_row = ("INSERT INTO test "
+               "(id, name)"
+               "VALUES (%s, %s)")
 	for i in range(nb):
-		cursor.execute("INSERT INTO test (id,name) VALUES (",i,", 'test');")
-		row = cursor.fetchall()	
+		data_row = (i,"lol")
+		cursor.execute(add_row,data_row)
 	cursor.close()
 	return time.time() - timeA 
 
@@ -51,9 +52,9 @@ def writeQuery(nb):
 #latency = readQuery("SELECT * FROM film;", 1000)
 #print "Latency: 		", latency
 
-latencyRead = writeQuery(10)
+latencyWrite = writeQuery(100)
 
-print latencyRead
+print latencyWrite
 
 
 cnx.close()
