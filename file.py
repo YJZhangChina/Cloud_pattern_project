@@ -39,10 +39,10 @@ def readQuery(query, nb):
 def writeQuery(nb):
 	cursor = cnx.cursor()
 	timeA = time.time()
-	add_row = ("INSERT INTO test "
+	for i in range(nb):
+		add_row = ("INSERT INTO test "
                "(id, name)"
                "VALUES (%s, %s)")
-	for i in range(nb):
 		data_row = (i,"lol")
 		cursor.execute(add_row,data_row)
 	cursor.close()
