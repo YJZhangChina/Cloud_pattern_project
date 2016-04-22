@@ -43,15 +43,15 @@ def deleteQuery(query):
 	cursor = cnx.cursor()
 	timeA = time.time()
 	print "executing: ", query
-	for i in range(nb):
-		cursor.execute(query)
+	# for i in range(nb):
+	cursor.execute(query)
 	cnx.commit()
 	cursor.close()
 	return time.time() - timeA 
 
 latencyWrite = writeQuery(100)
 latencyRead = readQuery("SELECT * FROM test;", 1000)
-latencyDelete = deleteQuery("DELETE * FROM test;")
+latencyDelete = deleteQuery("DELETE * FROM")
 print "Latency write:		", latencyWrite
 print "Latency read: 		", latencyRead
 
