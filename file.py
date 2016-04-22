@@ -7,7 +7,7 @@ cnx = mysql.connector.connect(user='root', password='root',
 
 cursor = cnx.cursor()
 
-query = ("SELECT COUNT(*) FROM film;")
+query = "SELECT COUNT(*) FROM film;"
 
 
 cursor.execute(query)
