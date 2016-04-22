@@ -5,6 +5,14 @@ cnx = mysql.connector.connect(user='root', password='root',
                               database='sakila')
 
 
+cursor = cnx.cursor()
+
+query = ("SELECT COUNT(*) FROM film;")
 
 
+cursor.execute(query)
+
+print cursor
+
+cursor.close()
 cnx.close()
