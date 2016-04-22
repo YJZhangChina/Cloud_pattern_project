@@ -1,0 +1,62 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[linesnumbered,ruled,vlined]{algorithm2e}\usepackage[T1]{fontenc}
+\usepackage{pgfplots}
+\usepackage{chngpage}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{subcaption}
+
+\setlength\parindent{0pt}
+
+
+\newcommand{\shellcmd}[1]{\\\texttt{\footnotesize\$ #1}\\}
+\pgfplotsset{
+  compat=newest,
+  xlabel near ticks,
+  ylabel near ticks
+}
+
+\newcommand\mycommfont[1]{\footnotesize\ttfamily\textcolor{blue}{#1}}
+
+\title{INF6953G : Lab 3 \\Scaling Databases and Implementing Cloud Patterns}
+\author{
+    Foutse Khomh \\
+    S. Amirhossein Abtahizadeh \\
+    D\'{e}partement G\'{e}nie Informatique et G\'{e}nie Logiciel \\
+    \'{E}cole Polytechnique de Montr\'{e}al, Qu\'{e}bec, Canada \\
+    \texttt{foutse.khomh[at]polymtl.ca} \\
+    \texttt{a.abtahizadeh[at]polymtl.ca}\\
+    {} \\
+    Le An, Alexandre Courouble, Mahdis Zolfagharinia
+}
+
+\date{22\textsuperscript{th} March, 2016}
+
+\begin{document}
+\maketitle
+
+
+
+\section{What were the results of comparing MySQL to MySQL Cluster. Were any of the results surprising, why or why not?}\label{Q1}
+
+\section{When and why should we use The Gatekeeper and Competing Consuming Patterns?}\label{Q2}
+
+\section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
+
+\section{Describe the implementation of multi-threaded application scenarios.}\label{Q4}
+
+\section{What were the results of comparing the patterns? Were any of the results surprising, why or why not?}\label{Q5}
+
+\section{What were the results of measuring energy consumption in scenarios? Pro- vide a comparison between Cloud patterns in terms of both performance (application response time) and energy consumption.}\label{Q6}
+
+
+
+
+
+%\bibliographystyle{IEEEtran}
+%\bibliography{reference}
+
+\end{document}
