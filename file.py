@@ -7,12 +7,12 @@ cnx = mysql.connector.connect(user='root', password='root',
 
 cursor = cnx.cursor()
 
-query = "SELECT COUNT(*) FROM film;"
+cursor.execute("SELECT * FROM film;")
 
-
-cursor.execute(query)
-
-print cursor
+row = cursor.fetchone()
+while row is not None:
+  print(row)
+  row = cursor.fetchone()
 
 cursor.close()
 cnx.close()
