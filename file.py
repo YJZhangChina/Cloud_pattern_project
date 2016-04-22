@@ -11,7 +11,7 @@ cursor = cnx.cursor()
 
 timeA = time.time()
 
-for i in range(1000)
+for i in range(1000):
 	cursor.execute("SELECT * FROM film;")
 	print i
 
