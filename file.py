@@ -45,6 +45,7 @@ def writeQuery(nb):
                "VALUES (%s, %s)")
 		data_row = (i,"lol")
 		cursor.execute(add_row,data_row)
+	cnx.commit()
 	cursor.close()
 	return time.time() - timeA 
 
