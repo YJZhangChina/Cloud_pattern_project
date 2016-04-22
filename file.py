@@ -1,4 +1,5 @@
 import mysql.connector
+import time
 
 cnx = mysql.connector.connect(user='root', password='root',
                               host='localhost',
@@ -7,12 +8,19 @@ cnx = mysql.connector.connect(user='root', password='root',
 
 cursor = cnx.cursor()
 
-cursor.execute("SELECT * FROM film;")
 
-row = cursor.fetchone()
-while row is not None:
-  print(row)
-  row = cursor.fetchone()
+timeA = time.time()
+
+for i in range(1000)
+	cursor.execute("SELECT * FROM film;")
+	print i
+
+latency = time.time() - timeA 
+
+print "Latency: 		", latency
+
+
+
 
 cursor.close()
 cnx.close()
