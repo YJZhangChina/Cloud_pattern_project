@@ -13,6 +13,7 @@ timeA = time.time()
 
 for i in range(1000):
 	cursor.execute("SELECT * FROM film;")
+	row = cursor.fetchone()
 	print i
 
 latency = time.time() - timeA 
