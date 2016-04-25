@@ -1,5 +1,11 @@
 import subprocess
 
+"""
+benchMark for STANDALONE DB
+
+"""
+
+
 threads = [1,2,4,8,16,32,64]
 
 theFile = open("output.txt", "w")
@@ -16,7 +22,7 @@ def bashCommand(command_str, i):
     printToFile(cmd_out, i)
 
 for i in threads:
-	string = "sysbench  --test=oltp --num-threads=" + str(i) + " --max-requests=10000 --db-driver=mysql --mysql-user=root --mysql-password= --mysql-table-engine=ndbcluster --mysql-db=sakila --mysql-socket=/tmp/mysql.sock run"
+	string = "sysbench --test=oltp --num-threads=" + str(i) + " --max-requests=10000 --db-driver=mysql --mysql-user=root --mysql-password= --mysql-table-engine=ndbcluster --mysql-db=sakila run"
 	bashCommand(string,i)
 
 theFile.close()
