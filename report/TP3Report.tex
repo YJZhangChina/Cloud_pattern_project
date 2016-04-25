@@ -42,15 +42,37 @@
 
 \section{What were the results of comparing MySQL to MySQL Cluster. Were any of the results surprising, why or why not?}\label{Q1}
 
-\section{When and why should we use The Gatekeeper and Competing Consuming Patterns?}\label{Q2}
+\section{When and why should we use The Gatekeeper and Competing Consumers Patterns?}\label{Q2}
 
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
+\subsection{Competing consumers pattern}
+\subsubsection{Overview}
+We use 4 AWS t2.micro machines to build the server side of the \emph{Competing consumers pattern}. We install and configure MySQL in the 4 machines (referred as to data node in the rest of this section). We configure the 4 data nodes as a cluster, where one machine (the \emph{master node}) receives requests from clients and distributes them either to itself or to the other three data nodes (\emph{slave nodes}). The Competing consumers pattern only deals with \texttt{INSERT} requests. After inserting a client request into the specific data node, the master node will reply to the client with a message (\emph{e.g,} ``Data inserted into Slave1'').
+Figure ??? illustrates the workflow of server which implements the Competing consumers pattern.???
+
+In the rest of this section, we elaborate three key points of the implementation of this pattern in terms of data nodes' configuration, master node's implementation, and socket connection. Our source code in Java can be found at: \url{???the-link???}.
+
+\subsubsection{Configuration of data nodes}
+We load \emph{Sakila} database into the 4 data nodes. The master node can send queries to the slave nodes through the port \textbf{3306}.
+
+\subsubsection{Implementation of the master node}
+In each client request, the master node will receive a string through the socket connection. The client request string contains the client identifier and her SQL request statement, an example of which is shown as follow:\\
+
+\texttt{200a3b9b-17a1-4808-b1ba-54d159ea4108+2006||INSERT INTO film (title, description, release\_year, language\_id) VALUES (\textquotesingle sample\_movie\textquotesingle, \textquotesingle This is just a test\textquotesingle, 2016, 1)}\\
+
+In the request, the client identifier and the SQL statement are separated by \texttt{||}. The master node parse the all letters and numbers (\emph{i.e.,} \texttt{[0-9a-z]}) in the client identifier to convert each of these characters to an ASCII decimal number and sum all ASCII decimal numbers. The result is noted as $DigitSum$. As there are 4 data node in the cluster, to balance the workload in these node, we divide $DigitSum$ by 4 and calculate the remainder, noted as $Rem$ (\emph{i.e.,} $DigitSum\%4=Rem$). $Rem$ is an integer ranged from 0 to 3. The master node will assign the request (by sending the SQL statement), where $Rem=0$, to itself; the request, where $Rem=1$, to slave node \#1; the request, where $Rem=2$, to slave node \#2; and the request, where $Rem=3$, to slave node \#3.
+
+\subsubsection{Socket connection}
+
+
+\subsection{Gatekeeper pattern}
+
 
 \section{Describe the implementation of multi-threaded application scenarios.}\label{Q4}
 
 \section{What were the results of comparing the patterns? Were any of the results surprising, why or why not?}\label{Q5}
 
-\section{What were the results of measuring energy consumption in scenarios? Pro- vide a comparison between Cloud patterns in terms of both performance (application response time) and energy consumption.}\label{Q6}
+\section{What were the results of measuring energy consumption in scenarios? Provide a comparison between Cloud patterns in terms of both performance (application response time) and energy consumption.}\label{Q6}
 
 
 
