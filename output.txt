@@ -1,0 +1,287 @@
+1
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 1
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases)
+Using "BEGIN" for starting transactions
+Using auto_inc on the id column
+Maximum number of requests for OLTP test is limited to 10000
+Threads started!
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            140000
+        write:                           50000
+        other:                           20000
+        total:                           210000
+    transactions:                        10000  (286.11 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 190000 (5436.09 per sec.)
+    other operations:                    20000  (572.22 per sec.)
+
+Test execution summary:
+    total time:                          34.9516s
+    total number of events:              10000
+    total time taken by event execution: 34.9062
+    per-request statistics:
+         min:                                  1.97ms
+         avg:                                  3.49ms
+         max:                                 61.14ms
+         approx.  95 percentile:               4.38ms
+
+Threads fairness:
+    events (avg/stddev):           10000.0000/0.00
+    execution time (avg/stddev):   34.9062/0.00
+
+
+2
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 2
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases)
+Using "BEGIN" for starting transactions
+Using auto_inc on the id column
+Maximum number of requests for OLTP test is limited to 10000
+Threads started!
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            140000
+        write:                           50000
+        other:                           20000
+        total:                           210000
+    transactions:                        10000  (401.66 per sec.)
+    deadlocks:                           0      (0.00 per sec.)
+    read/write requests:                 190000 (7631.62 per sec.)
+    other operations:                    20000  (803.33 per sec.)
+
+Test execution summary:
+    total time:                          24.8964s
+    total number of events:              10000
+    total time taken by event execution: 49.7470
+    per-request statistics:
+         min:                                  1.85ms
+         avg:                                  4.97ms
+         max:                                 55.88ms
+         approx.  95 percentile:               7.35ms
+
+Threads fairness:
+    events (avg/stddev):           5000.0000/4.00
+    execution time (avg/stddev):   24.8735/0.00
+
+
+4
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 4
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases)
+Using "BEGIN" for starting transactions
+Using auto_inc on the id column
+Maximum number of requests for OLTP test is limited to 10000
+Threads started!
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            140014
+        write:                           50003
+        other:                           20001
+        total:                           210018
+    transactions:                        10000  (528.86 per sec.)
+    deadlocks:                           1      (0.05 per sec.)
+    read/write requests:                 190017 (10049.16 per sec.)
+    other operations:                    20001  (1057.76 per sec.)
+
+Test execution summary:
+    total time:                          18.9088s
+    total number of events:              10000
+    total time taken by event execution: 75.5896
+    per-request statistics:
+         min:                                  2.18ms
+         avg:                                  7.56ms
+         max:                                 70.63ms
+         approx.  95 percentile:               9.78ms
+
+Threads fairness:
+    events (avg/stddev):           2500.0000/3.08
+    execution time (avg/stddev):   18.8974/0.00
+
+
+8
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 8
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases)
+Using "BEGIN" for starting transactions
+Using auto_inc on the id column
+Maximum number of requests for OLTP test is limited to 10000
+Threads started!
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            140084
+        write:                           50013
+        other:                           20006
+        total:                           210103
+    transactions:                        10000  (642.64 per sec.)
+    deadlocks:                           6      (0.39 per sec.)
+    read/write requests:                 190097 (12216.32 per sec.)
+    other operations:                    20006  (1285.66 per sec.)
+
+Test execution summary:
+    total time:                          15.5609s
+    total number of events:              10000
+    total time taken by event execution: 124.4068
+    per-request statistics:
+         min:                                  3.29ms
+         avg:                                 12.44ms
+         max:                                132.53ms
+         approx.  95 percentile:              15.46ms
+
+Threads fairness:
+    events (avg/stddev):           1250.0000/9.19
+    execution time (avg/stddev):   15.5509/0.00
+
+
+16
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 16
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases)
+Using "BEGIN" for starting transactions
+Using auto_inc on the id column
+Maximum number of requests for OLTP test is limited to 10000
+Threads started!
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            140084
+        write:                           50017
+        other:                           20006
+        total:                           210107
+    transactions:                        10000  (687.16 per sec.)
+    deadlocks:                           6      (0.41 per sec.)
+    read/write requests:                 190101 (13062.90 per sec.)
+    other operations:                    20006  (1374.72 per sec.)
+
+Test execution summary:
+    total time:                          14.5527s
+    total number of events:              10000
+    total time taken by event execution: 232.7306
+    per-request statistics:
+         min:                                  4.06ms
+         avg:                                 23.27ms
+         max:                                129.76ms
+         approx.  95 percentile:              28.34ms
+
+Threads fairness:
+    events (avg/stddev):           625.0000/7.05
+    execution time (avg/stddev):   14.5457/0.00
+
+
+32
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 32
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases)
+Using "BEGIN" for starting transactions
+Using auto_inc on the id column
+Maximum number of requests for OLTP test is limited to 10000
+Threads started!
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            140224
+        write:                           50041
+        other:                           20016
+        total:                           210281
+    transactions:                        10000  (644.99 per sec.)
+    deadlocks:                           16     (1.03 per sec.)
+    read/write requests:                 190265 (12271.94 per sec.)
+    other operations:                    20016  (1291.02 per sec.)
+
+Test execution summary:
+    total time:                          15.5041s
+    total number of events:              10000
+    total time taken by event execution: 495.7049
+    per-request statistics:
+         min:                                  3.46ms
+         avg:                                 49.57ms
+         max:                                320.33ms
+         approx.  95 percentile:              64.29ms
+
+Threads fairness:
+    events (avg/stddev):           312.5000/2.76
+    execution time (avg/stddev):   15.4908/0.01
+
+
+64
+sysbench 0.4.12:  multi-threaded system evaluation benchmark
+
+Running the test with following options:
+Number of threads: 64
+
+Doing OLTP test.
+Running mixed OLTP test
+Using Special distribution (12 iterations,  1 pct of values are returned in 75 pct cases)
+Using "BEGIN" for starting transactions
+Using auto_inc on the id column
+Maximum number of requests for OLTP test is limited to 10000
+Threads started!
+Done.
+
+OLTP test statistics:
+    queries performed:
+        read:                            141008
+        write:                           50174
+        other:                           20072
+        total:                           211254
+    transactions:                        10000  (612.07 per sec.)
+    deadlocks:                           72     (4.41 per sec.)
+    read/write requests:                 191182 (11701.61 per sec.)
+    other operations:                    20072  (1228.54 per sec.)
+
+Test execution summary:
+    total time:                          16.3381s
+    total number of events:              10000
+    total time taken by event execution: 1044.9544
+    per-request statistics:
+         min:                                  3.40ms
+         avg:                                104.50ms
+         max:                                520.47ms
+         approx.  95 percentile:             152.61ms
+
+Threads fairness:
+    events (avg/stddev):           156.2500/2.20
+    execution time (avg/stddev):   16.3274/0.00
+
+
