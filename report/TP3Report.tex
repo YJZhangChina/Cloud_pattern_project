@@ -42,7 +42,22 @@
 
 \section{What were the results of comparing MySQL to MySQL Cluster. Were any of the results surprising, why or why not?}\label{Q1}
 
-For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AWS EC2 t2.micro instances. The MySQL database was installed on a signle node, while the cluster was setup on a set of four different instances. The first instance would hold the Master and the MySQL nodes while the last three would host the data nodes. We were able to benchmark both databases using Sysbench. The following graphs show the performance of both MySQL and MySQL cluster for 1, 2, 4, 8, 16, 32, 64 threads. The first graph shows the performance for 5000 requests while the second show the performance for 10000 requests. Surprisingly, the standard, single node, MySQL database performed much better than the MySQL cluster. This is due to the fact that the cluster looses a lot of time retrieving its data in the different node, while the single MySQL database has its data stored locally. 
+For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AWS EC2 t2.micro instances. The MySQL database was installed on a signle node, while the cluster was setup on a set of four different instances. The first instance would hold the Master and the MySQL nodes while the last three would host the data nodes. We were able to benchmark both databases using Sysbench.
+
+ The following graphs show the performance of both MySQL and MySQL cluster for 1, 2, 4, 8, 16, 32, 64 threads. The first graph shows the performance for 5000 requests while the second show the performance for 10000 requests. Surprisingly, the standard, single node, MySQL database performed much better than the MySQL cluster. This is due to the fact that the cluster looses a lot of time retrieving its data in the different node, while the single MySQL database has its data stored locally. 
+ 
+ 
+ 
+  % graphs go here
+ % graphs go here
+  % graphs go here
+   % graphs go here
+    % graphs go here
+     % graphs go here
+      % graphs go here
+       % graphs go here
+
+The following table display the results of our benchmarking process. As you can see, we ran each thread and each request for 5 time. 
 
 \begin{table}[]
 	\centering
