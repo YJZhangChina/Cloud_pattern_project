@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2016 16:40
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2016 19:10
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1007,7 +1007,11 @@ Package caption3 Info: TeX engine: e-TeX on input line 57.
 \c@subfigure=\count138
 \c@subtable=\count139
 )
-(./TP3Report.aux)
+(./TP3Report.aux
+
+LaTeX Warning: Label `my-label' multiply defined.
+
+)
 \openout1 = `TP3Report.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -1028,6 +1032,7 @@ LaTeX Font Info:    Try loading font information for TS1+cmr on input line 38.
 File: ts1cmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    ... okay on input line 38.
+
 ABD: EveryShipout initializing macros
 (/usr/local/texlive/2015/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1098,140 +1103,172 @@ Package caption Info: End \AtBeginDocument code.
 LaTeX Font Info:    Try loading font information for T1+cmtt on input line 39.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-) [1
+)
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 47.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 74.
+
+[1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 60--61
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 116--117
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 62.
-
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 118
+.
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 62--63
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 118--119
 []\T1/cmtt/m/n/10 200a3b9b-17a1-4808-b1ba-54d159ea4108+2006||INSERT INTO film (
 title,
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 62--63
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 118--119
 \T1/cmtt/m/n/10 description, release_year, language_id) VALUES (\TS1/cmtt/m/n/1
 0 '\T1/cmtt/m/n/10 sample_movie\TS1/cmtt/m/n/10 '\T1/cmtt/m/n/10 , \TS1/cmtt/m/
 n/10 '\T1/cmtt/m/n/10 This
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 62--63
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 64--65
-
- []
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 69--70
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 73--74
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 79--80
+Underfull \hbox (badness 10000) in paragraph at lines 118--119
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 87--88
+Underfull \hbox (badness 10000) in paragraph at lines 120--121
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 89--90
+Underfull \hbox (badness 10000) in paragraph at lines 125--126
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 94--95
+Underfull \hbox (badness 10000) in paragraph at lines 129--130
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
 
 [4]
+Underfull \hbox (badness 10000) in paragraph at lines 143--144
 
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 129.
-
-<images/performance.pdf, id=31, 722.7pt x 505.89pt>
-File: images/performance.pdf Graphic file (type pdf)
-
-<use images/performance.pdf>
-Package pdftex.def Info: images/performance.pdf used on input line 145.
-(pdftex.def)             Requested size: 369.88582pt x 258.91907pt.
-
-Overfull \hbox (24.88582pt too wide) in paragraph at lines 145--146
- [][] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 152--153
+Underfull \hbox (badness 10000) in paragraph at lines 145--146
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
 [5]
-Overfull \hbox (0.67061pt too wide) in paragraph at lines 161--161
-[]\T1/cmr/bx/n/14.4 What were the re-sults of mea-sur-ing en-ergy con-
- []
 
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 185.
 
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
+<images/performance.pdf, id=34, 722.7pt x 361.35pt>
+File: images/performance.pdf Graphic file (type pdf)
+
+<use images/performance.pdf>
+Package pdftex.def Info: images/performance.pdf used on input line 201.
+(pdftex.def)             Requested size: 345.0pt x 172.49767pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 208--209
 
  []
 
 [6]
-Underfull \hbox (badness 10000) in paragraph at lines 167--168
+Overfull \hbox (0.67061pt too wide) in paragraph at lines 217--217
+[]\T1/cmr/bx/n/14.4 What were the re-sults of mea-sur-ing en-ergy con-
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 219--220
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 223--224
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 175--176
+Underfull \hbox (badness 10000) in paragraph at lines 231--232
 
  []
 
-[7 <./images/performance.pdf>] [8] (./TP3Report.aux) ) 
+[8 <./images/performance.pdf>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 254.
+
+<images/energy.pdf, id=53, 722.7pt x 361.35pt>
+File: images/energy.pdf Graphic file (type pdf)
+ <use images/energy.pdf>
+Package pdftex.def Info: images/energy.pdf used on input line 270.
+(pdftex.def)             Requested size: 345.0pt x 172.49767pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 277--278
+
+ []
+
+[9]
+Underfull \hbox (badness 10000) in paragraph at lines 284--285
+
+ []
+
+[10 <./images/energy.pdf>]
+No file TP3Report.bbl.
+[11] (./TP3Report.aux)
+
+LaTeX Warning: There were multiply-defined labels.
+
+ ) 
 Here is how much of TeX's memory you used:
- 24392 strings out of 493089
- 588593 string characters out of 6134842
- 757237 words of memory out of 5000000
- 27442 multiletter control sequences out of 15000+600000
+ 24402 strings out of 493089
+ 588755 string characters out of 6134842
+ 760237 words of memory out of 5000000
+ 27450 multiletter control sequences out of 15000+600000
  15602 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,8n,84p,1097b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/
-texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2015/t
-exmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2015/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-
-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-d
-ist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2015/texmf-dis
-t/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/texmf-dist/
-fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/texmf-dist/fo
-nts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/font
-s/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/
-type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/ty
-pe1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2015/texmf-dist/fonts/type
-1/public/cm-super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
-public/cm-super/sftt1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pu
-blic/cm-super/sftt1200.pfb>
-Output written on TP3Report.pdf (8 pages, 253311 bytes).
+ 62i,8n,84p,1267b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
+}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<
+/usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></
+usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
+ocal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/lo
+cal/texlive/2015/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/loca
+l/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/
+texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/te
+xlive/2015/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texl
+ive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texliv
+e/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
+2015/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/20
+15/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2015
+/texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2015/t
+exmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
+Output written on TP3Report.pdf (11 pages, 280668 bytes).
 PDF statistics:
- 99 PDF objects out of 1000 (max. 8388607)
- 73 compressed objects within 1 object stream
+ 123 PDF objects out of 1000 (max. 8388607)
+ 90 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 18 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 23 words of extra memory for PDF output out of 10000 (max. 10000000)
 
