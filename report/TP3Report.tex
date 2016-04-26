@@ -42,6 +42,8 @@
 
 \section{What were the results of comparing MySQL to MySQL Cluster. Were any of the results surprising, why or why not?}\label{Q1}
 
+For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AWS EC2 t2.micro instances. The MySQL database was installed on a signle node, while the cluster was setup on a set of four different instances. The first instance would hold the Master and the MySQL nodes while the last three would host the data nodes. We were able to benchmark both databases using Sysbench. 
+
 \section{When and why should we use The Gatekeeper and Competing Consumers Patterns?}\label{Q2}
 
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}

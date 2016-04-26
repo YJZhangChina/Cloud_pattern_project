@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  25 APR 2016 18:42
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2016 15:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1101,65 +1101,121 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 ) [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-Underfull \hbox (badness 10000) in paragraph at lines 59--60
+Underfull \hbox (badness 10000) in paragraph at lines 61--62
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 61.
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 63.
 
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 61--62
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 63--64
 []\T1/cmtt/m/n/10 200a3b9b-17a1-4808-b1ba-54d159ea4108+2006||INSERT INTO film (
 title,
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 61--62
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 63--64
 \T1/cmtt/m/n/10 description, release_year, language_id) VALUES (\TS1/cmtt/m/n/1
 0 '\T1/cmtt/m/n/10 sample_movie\TS1/cmtt/m/n/10 '\T1/cmtt/m/n/10 , \TS1/cmtt/m/
 n/10 '\T1/cmtt/m/n/10 This
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 61--62
+Underfull \hbox (badness 10000) in paragraph at lines 63--64
 
  []
 
 
-Overfull \hbox (0.67061pt too wide) in paragraph at lines 75--75
+Underfull \hbox (badness 10000) in paragraph at lines 65--66
+
+ []
+
+[2]
+Underfull \hbox (badness 10000) in paragraph at lines 70--71
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 74--75
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 80--81
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 88--89
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 90--91
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 95--96
+
+ []
+
+[4]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 130.
+
+<images/performance.pdf, id=31, 722.7pt x 505.89pt>
+File: images/performance.pdf Graphic file (type pdf)
+
+<use images/performance.pdf>
+Package pdftex.def Info: images/performance.pdf used on input line 146.
+(pdftex.def)             Requested size: 369.88582pt x 258.91907pt.
+
+Overfull \hbox (24.88582pt too wide) in paragraph at lines 146--147
+ [][] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 153--154
+
+ []
+
+[5]
+Overfull \hbox (0.67061pt too wide) in paragraph at lines 162--162
 []\T1/cmr/bx/n/14.4 What were the re-sults of mea-sur-ing en-ergy con-
  []
 
-[2] [3] (./TP3Report.aux) ) 
+[6] [7 <./images/performance.pdf>] (./TP3Report.aux) ) 
 Here is how much of TeX's memory you used:
- 24372 strings out of 493089
- 588254 string characters out of 6134842
- 751237 words of memory out of 5000000
- 27425 multiletter control sequences out of 15000+600000
- 15267 words of font info for 40 fonts, out of 8000000 for 9000
+ 24391 strings out of 493089
+ 588582 string characters out of 6134842
+ 757237 words of memory out of 5000000
+ 27441 multiletter control sequences out of 15000+600000
+ 15602 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,6n,84p,828b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/
-cm-super/cm-super-ts1.enc}{/usr/local/texlive/2015/texmf-dist/fonts/enc/dvips/c
-m-super/cm-super-t1.enc}</usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-
-super/sfbx1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-su
-per/sfbx1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-supe
-r/sfbx1440.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/
-sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sf
-rm1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm
-1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfrm17
-28.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sfti1000
-.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sftt1000.p
-fb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb
->
-Output written on TP3Report.pdf (3 pages, 225148 bytes).
+ 62i,8n,84p,1097b,609s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2015/
+texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2015/t
+exmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2015/tex
+mf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2015/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-
+dist/fonts/type1/public/cm-super/sfbx1000.pfb></usr/local/texlive/2015/texmf-di
+st/fonts/type1/public/cm-super/sfbx1200.pfb></usr/local/texlive/2015/texmf-dist
+/fonts/type1/public/cm-super/sfbx1440.pfb></usr/local/texlive/2015/texmf-dist/f
+onts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2015/texmf-dist/fon
+ts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2015/texmf-dist/fonts
+/type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2015/texmf-dist/fonts/t
+ype1/public/cm-super/sfrm1728.pfb></usr/local/texlive/2015/texmf-dist/fonts/typ
+e1/public/cm-super/sfti1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/cm-super/sftt1000.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/cm-super/sftt1200.pfb>
+Output written on TP3Report.pdf (7 pages, 241213 bytes).
 PDF statistics:
- 69 PDF objects out of 1000 (max. 8388607)
- 51 compressed objects within 1 object stream
+ 92 PDF objects out of 1000 (max. 8388607)
+ 68 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 13 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 18 words of extra memory for PDF output out of 10000 (max. 10000000)
 
