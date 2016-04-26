@@ -45,6 +45,7 @@
 For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AWS EC2 t2.micro instances. The MySQL database was installed on a signle node, while the cluster was setup on a set of four different instances. The first instance would hold the Master and the MySQL nodes while the last three would host the data nodes. We were able to benchmark both databases using Sysbench. The following graphs show the performance of both MySQL and MySQL cluster for 1, 2, 4, 8, 16, 32, 64 threads. The first graph shows the performance for 5000 requests while the second show the performance for 10000 requests. Surprisingly, the standard, single node, MySQL database performed much better than the MySQL cluster. This is due to the fact that the cluster looses a lot of time retrieving its data in the different node, while the single MySQL database has its data stored locally. 
 \section{When and why should we use The Gatekeeper and Competing Consumers Patterns?}\label{Q2}
 
+
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
 \subsection{Competing Consumers pattern}
 \subsubsection{Overview}
@@ -182,7 +183,7 @@ Finally, we sum the energy consumed in each of the seconds by the subject proces
 
 
 
-%\bibliographystyle{IEEEtran}
-%\bibliography{reference}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
