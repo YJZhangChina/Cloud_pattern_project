@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2016 19:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2016 19:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1106,69 +1106,59 @@ File: t1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 47.
+               Default added (so using `tbp') on input line 62.
+
+
+Overfull \hbox (20.81725pt too wide) in paragraph at lines 66--84
+ [][] 
+ []
 
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 74.
+               Default added (so using `tbp') on input line 89.
 
 [1
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2]
-Underfull \hbox (badness 10000) in paragraph at lines 116--117
+Underfull \hbox (badness 10000) in paragraph at lines 131--132
 
  []
 
-LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 118
+LaTeX Font Info:    Try loading font information for TS1+cmtt on input line 133
 .
 (/usr/local/texlive/2015/texmf-dist/tex/latex/base/ts1cmtt.fd
 File: ts1cmtt.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
-Overfull \hbox (6.66412pt too wide) in paragraph at lines 118--119
+Overfull \hbox (6.66412pt too wide) in paragraph at lines 133--134
 []\T1/cmtt/m/n/10 200a3b9b-17a1-4808-b1ba-54d159ea4108+2006||INSERT INTO film (
 title,
  []
 
 
-Overfull \hbox (17.16156pt too wide) in paragraph at lines 118--119
+Overfull \hbox (17.16156pt too wide) in paragraph at lines 133--134
 \T1/cmtt/m/n/10 description, release_year, language_id) VALUES (\TS1/cmtt/m/n/1
 0 '\T1/cmtt/m/n/10 sample_movie\TS1/cmtt/m/n/10 '\T1/cmtt/m/n/10 , \TS1/cmtt/m/
 n/10 '\T1/cmtt/m/n/10 This
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 118--119
+Underfull \hbox (badness 10000) in paragraph at lines 133--134
 
  []
 
 [3]
-Underfull \hbox (badness 10000) in paragraph at lines 120--121
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 125--126
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 129--130
-
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 135--136
 
  []
 
-[4]
-Underfull \hbox (badness 10000) in paragraph at lines 143--144
+
+Underfull \hbox (badness 10000) in paragraph at lines 140--141
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 145--146
+Underfull \hbox (badness 10000) in paragraph at lines 144--145
 
  []
 
@@ -1177,63 +1167,82 @@ Underfull \hbox (badness 10000) in paragraph at lines 150--151
 
  []
 
+[4]
+Underfull \hbox (badness 10000) in paragraph at lines 158--159
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 160--161
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 165--166
+
+ []
+
 [5]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 185.
+               Default added (so using `tbp') on input line 200.
 
 <images/performance.pdf, id=34, 722.7pt x 361.35pt>
 File: images/performance.pdf Graphic file (type pdf)
 
 <use images/performance.pdf>
-Package pdftex.def Info: images/performance.pdf used on input line 201.
+Package pdftex.def Info: images/performance.pdf used on input line 216.
 (pdftex.def)             Requested size: 345.0pt x 172.49767pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 208--209
-
- []
-
-[6]
-Overfull \hbox (0.67061pt too wide) in paragraph at lines 217--217
-[]\T1/cmr/bx/n/14.4 What were the re-sults of mea-sur-ing en-ergy con-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 219--220
-
- []
-
-[7]
 Underfull \hbox (badness 10000) in paragraph at lines 223--224
 
  []
 
+[6]
+Overfull \hbox (0.67061pt too wide) in paragraph at lines 232--232
+[]\T1/cmr/bx/n/14.4 What were the re-sults of mea-sur-ing en-ergy con-
+ []
 
-Underfull \hbox (badness 10000) in paragraph at lines 231--232
+
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
+
+ []
+
+[7]
+Underfull \hbox (badness 10000) in paragraph at lines 238--239
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 246--247
 
  []
 
 [8 <./images/performance.pdf>]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 254.
+               Default added (so using `tbp') on input line 269.
 
 <images/energy.pdf, id=53, 722.7pt x 361.35pt>
 File: images/energy.pdf Graphic file (type pdf)
  <use images/energy.pdf>
-Package pdftex.def Info: images/energy.pdf used on input line 270.
+Package pdftex.def Info: images/energy.pdf used on input line 285.
 (pdftex.def)             Requested size: 345.0pt x 172.49767pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 277--278
+Underfull \hbox (badness 10000) in paragraph at lines 292--293
 
  []
 
 [9]
-Underfull \hbox (badness 10000) in paragraph at lines 284--285
+Underfull \hbox (badness 10000) in paragraph at lines 299--300
 
  []
 
 [10 <./images/energy.pdf>]
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
+
+ []
+
 No file TP3Report.bbl.
 [11] (./TP3Report.aux)
 
@@ -1265,7 +1274,7 @@ e/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on TP3Report.pdf (11 pages, 280668 bytes).
+Output written on TP3Report.pdf (11 pages, 281330 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  90 compressed objects within 1 object stream
