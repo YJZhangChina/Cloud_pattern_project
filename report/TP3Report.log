@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2016 19:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  26 APR 2016 19:40
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1109,13 +1109,18 @@ LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 62.
 
 
-Overfull \hbox (20.81725pt too wide) in paragraph at lines 66--84
+Overfull \hbox (20.81714pt too wide) in paragraph at lines 66--84
  [][] 
  []
 
 
 LaTeX Warning: No positions in optional float specifier.
                Default added (so using `tbp') on input line 89.
+
+
+Overfull \hbox (20.81714pt too wide) in paragraph at lines 93--111
+ [][] 
+ []
 
 [1
 
@@ -1252,7 +1257,7 @@ LaTeX Warning: There were multiply-defined labels.
 Here is how much of TeX's memory you used:
  24402 strings out of 493089
  588755 string characters out of 6134842
- 760237 words of memory out of 5000000
+ 759237 words of memory out of 5000000
  27450 multiletter control sequences out of 15000+600000
  15602 words of font info for 41 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1274,7 +1279,7 @@ e/2015/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/
 /texmf-dist/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2015/t
 exmf-dist/fonts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2015/tex
 mf-dist/fonts/type1/public/cm-super/sftt1200.pfb>
-Output written on TP3Report.pdf (11 pages, 281330 bytes).
+Output written on TP3Report.pdf (11 pages, 281217 bytes).
 PDF statistics:
  123 PDF objects out of 1000 (max. 8388607)
  90 compressed objects within 1 object stream
