@@ -45,6 +45,10 @@
 For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AWS EC2 t2.micro instances. The MySQL database was installed on a signle node, while the cluster was setup on a set of four different instances. The first instance would hold the Master and the MySQL nodes while the last three would host the data nodes. We were able to benchmark both databases using Sysbench. The following graphs show the performance of both MySQL and MySQL cluster for 1, 2, 4, 8, 16, 32, 64 threads. The first graph shows the performance for 5000 requests while the second show the performance for 10000 requests. Surprisingly, the standard, single node, MySQL database performed much better than the MySQL cluster. This is due to the fact that the cluster looses a lot of time retrieving its data in the different node, while the single MySQL database has its data stored locally. 
 \section{When and why should we use The Gatekeeper and Competing Consumers Patterns?}\label{Q2}
 
+The Competing Consumer Pattern is a cloud pattern that is meant to assure stability and availability for variable amount of requests. This pattern is a great scalable solution for an application with a highly variable workload. 
+
+The Gatekeeper pattern is a pattern that has for purpose to keep sensitive information safe. We should use this pattern to prevent malicious user from injecting wrongful SQL commands to our database. 
+
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
 \subsection{Competing Consumers pattern}
 \subsubsection{Overview}
@@ -229,7 +233,7 @@ In this project, we experienced a lot of failures when using the GlassFish serve
 
 We should also consider to replace the GlassFish server with newer resolutions to obtain a higher stability. In addition, we may also need to adjust our experimental scenario. Because in the real-life, a client cannot generate 100 requests without any interval like a robot. In the future, we plan add some interval time to more closely simulate a client's consecutive queries. Moreover, the total application execution time may not the best metric to measure the performance of a cloud pattern. In the future, we need to measure the amount of time for each query from the it is sent from the client side until the client receives the response. Then we can calculate the average or median response time of all queries of all clients. This result can better reflect a cloud service's performance. Regarding the measurement of the energy consumption, although PowerAPI is 
 
-%\bibliographystyle{IEEEtran}
-%\bibliography{reference}
+\bibliographystyle{IEEEtran}
+\bibliography{references}
 
 \end{document}
