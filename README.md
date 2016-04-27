@@ -2,7 +2,8 @@
 
 ### What is this repository for? ###
 
-Evaluate the performance of Hadoop and Spark with different algorithms
+- Comparing standalone MySQL database against MySQL cluster database. 
+- Compare the performance and energy consumption of the Competing Consumers pattern against the Gatekeeper pattern.
 
 ###File description###
 - **???** folder: 
