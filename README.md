@@ -13,7 +13,11 @@
 		- **Gatekeeper.java**: connects clients and the trusted host. It can send queries from clients to the trusted host, and send back the response from the trusted host to clients.
 		- **TrustedHost.java**: connects the gatekeeper and the sensitive data. I can send queries from the gatekeeper to the sensitive database, and send back the database's response to the gatekeeper.
 - **pattern_measurement** folder contains output of PowerAPI for each number of clients and a script to parse the results.
-
+- **MySQL_benchmark** This folder contains all the files related to the steps we took to benchmark the standalone MySQL db and our MySQL cluster. You will find:
+	- An Excel table containing the results of the benchmarking.
+	- A file describing the steps we took to setup the cluster.
+	- A folder containing the scripts used to benchmark our databases and the raw outputs.
+	
 ### How should I run these programs? ###
 - **Competing Consumers pattern**
 	1. Run the GlassFish server.
