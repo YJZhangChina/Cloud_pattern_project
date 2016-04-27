@@ -110,7 +110,7 @@ The following table display the results of our benchmarking process. As you can 
 	\end{tabular}
 \end{table}
 
-\section{When and why should we use The Gatekeeper and Competing Consumers Patterns?}\label{Q2}
+\section{When and why should we use the Gatekeeper and Competing Consumers Patterns?}\label{Q2}
 
 The Competing Consumer Pattern is a cloud pattern that is meant to assure stability and availability for variable amount of requests. This pattern is a great scalable solution for an application with a highly variable workload. 
 
@@ -119,8 +119,17 @@ The Gatekeeper pattern is a pattern that has for purpose to keep sensitive infor
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
 \subsection{Competing Consumers pattern}
 \subsubsection{Overview}
-We use 4 AWS t2.micro machines to build the server side of the \emph{Competing consumers pattern}. We install and configure  or to the other three data nodes (\emph{slave nodes}). The Competing Consumers pattern only handles \texttt{INSERT} requests. After inserting a client request into the specific data node, the master node will reply to the cMySQL in the 4 machines (referred as to data node in the rest of this section). We configure the 4 data nodes as a cluster, where one machine (the \emph{master node}) receives requests from clients and distributes them either to itselflient with a message (\emph{e.g,} ``Data inserted into Slave1'').
-Figure ??? illustrates the workflow of server which implements the Competing consumers pattern.???
+
+\begin{figure}[t]
+    \centering
+        \includegraphics[width = 10cm]{images/CCP.pdf}
+    \caption{Architecture of the servers that implement the Competing Consumers pattern.}
+    \label{fig:arch1}
+\end{figure}
+
+
+We use four AWS t2.micro instances to build the server side of the \emph{Competing consumers pattern}. We install MySQL in all of the four instances. We configure the instances as a cluster, where one instance (the \emph{master node}) receives queries from clients and distributes them either to itself or to the other three instances (\emph{slave nodes}). The Competing Consumers pattern only handles \texttt{INSERT} SQL queries. After inserting a client request into the specific instance (referred as to \emph{data node}), the master node will reply the client with a message (\emph{e.g,} ``Data inserted into Slave1'').
+Figure \ref{fig:arch1} illustrates the architecture of the servers, which implements the Competing consumers pattern.\\
 
 In the rest of this section, we elaborate three key points of the implementation of this pattern in terms of the data nodes' configuration, master node's implementation, and socket connection. Our source code in Java can be found at: \url{???the-link???}.
 
@@ -147,7 +156,15 @@ Similar to the real web environment, if there is a socket connection error, the 
 
 \subsection{Gatekeeper pattern}
 \subsubsection{Overview}
-We use 3 AWS t2.micro instances to build the server side of the \emph{Gatekeeper} pattern. The first instance refers as to the \emph{gatekeeper}, which filters out malicious information from all clients' requests. The second instance refers as to the \emph{trusted host}, which receives safe requests from the gatekeeper and send them to the database. The third instance refers as to the \emph{sensitive data node}, which handles clients' requests and send the result back to the trusted host. To ensure the confidentiality of the database, the sensitive data node can be only reached by the trusted host. And the trusted host can be only reached by the gatekeeper and the sensitive data node. Therefore, one client's request targeted to the sensitive data node will pass through the gatekeeper, trusted host, and handled by the the sensitive data node; then the results will be sent back by the sensitive data node through the trusted host and the gatekeeper to the client. Figure ??? illustrates the workflow of server which implements the Gatekeeper pattern.???\\
+
+\begin{figure}[t]
+    \centering
+        \includegraphics[width = \columnwidth]{images/gatekeeper.pdf}
+    \caption{Architecture of the servers that implement the Gatekeeper pattern.}
+    \label{fig:arch2}
+\end{figure}
+
+We use 3 AWS t2.micro instances to build the server side of the \emph{Gatekeeper} pattern. The first instance refers as to the \emph{gatekeeper}, which filters out malicious information from all clients' requests. The second instance refers as to the \emph{trusted host}, which receives safe requests from the gatekeeper and send them to the database. The third instance refers as to the \emph{sensitive data node}, which handles clients' requests and send the result back to the trusted host. To ensure the confidentiality of the database, the sensitive data node can be only reached by the trusted host. And the trusted host can be only reached by the gatekeeper and the sensitive data node. Therefore, one client's request targeted to the sensitive data node will pass through the gatekeeper, trusted host, and handled by the the sensitive data node; then the results will be sent back by the sensitive data node through the trusted host and the gatekeeper to the client. Figure \ref{fig:arch2} illustrates the architecture of the servers, which implements the Gatekeeper pattern.\\
 
 In the rest of this section, we elaborate three key points of the sensitive data node's configuration, the trusted host's configuration and implementation, and the gatekeeper's implementation. Our source code in Java can be found at: \url{???the-link???}.
 
