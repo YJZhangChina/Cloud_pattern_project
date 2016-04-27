@@ -44,7 +44,7 @@
 
 For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AWS EC2 t2.micro instances. The MySQL database was installed on a signle node, while the cluster was setup on a set of four different instances. The first instance would hold the Master and the MySQL nodes while the last three would host the data nodes. We were able to benchmark both databases using Sysbench.
 
- The following graphs show the performance of both MySQL and MySQL cluster for 1, 2, 4, 8, 16, 32, 64 threads. The first graph shows the performance for 5000 requests while the second show the performance for 10000 requests. Surprisingly, the standard, single node, MySQL database performed much better than the MySQL cluster. This is due to the fact that the cluster looses a lot of time retrieving its data in the different node, while the single MySQL database has its data stored locally. 
+ The following graphs show the performance of both MySQL and MySQL cluster for 1, 2, 4, 8, 16, 32, 64 threads. The first graph shows the performance for 5000 requests while the second show the performance for 10000 requests. Surprisingly, the standard, single node, MySQL database performed much better than the MySQL cluster. This is due to the fact that the cluster loses a lot of time retrieving its data in the different node, while the single MySQL database has its data stored locally. 
  
  
  
@@ -110,28 +110,18 @@ The following table display the results of our benchmarking process. As you can 
 	\end{tabular}
 \end{table}
 
-\section{When and why should we use the Gatekeeper and Competing Consumers Patterns?}\label{Q2}
+\section{When and why should we use The Gatekeeper and Competing Consumers Patterns?}\label{Q2}
 
-The Competing Consumer Pattern is a cloud pattern that is meant to assure stability and availability for variable amount of requests. This pattern is a great scalable solution for an application with a highly variable workload. 
+The Competing Consumer Pattern is a cloud pattern that is meant to assure stability and availability for variable amount of requests. This pattern is a great scalable solution for an application with a highly variable workload.  The pattern will allow the application to balance the workload duriing periods of high demand. 
 
-The Gatekeeper pattern is a pattern that has for purpose to keep sensitive information safe. We should use this pattern to prevent malicious user from injecting wrongful SQL commands to our database. 
+The Gatekeeper pattern is a pattern that has for purpose to keep sensitive information safe. We should use this pattern to prevent malicious user from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to have an instance that will filter the requests and prevent direct access to the database. The end users will only see the gatekeeper and will not be able to see the functionalities or gain unrestrained access to sensitive data. 
 
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
 \subsection{Competing Consumers pattern}
 \subsubsection{Overview}
+We used 4 AWS t2.micro machines to build the server side of the \emph{Competing consumers pattern}. We installed and configured MySQL on the other three data node instances (slave nodes}). The Competing Consumers pattern only handles \texttt{INSERT} requestSQL queries. After inserting a client request into the specific data node, the master node will reply to the cMySQL in the 4 machines (referred as to data node in the rest of this section). We configdata nodes as a cluster, where one machine (the \emph{master node}) receives requests from clients and distributes them either to itselfinstance (referred as to \emph{data node}), the master node will reply the client with a message (\emph{e.g,} ``Data inserted into Slave1'').                                                                 rvers, which implements the Competing consumers pattern.???\\
 
-\begin{figure}[t]
-    \centering
-        \includegraphics[width = 10cm]{images/CCP.pdf}
-    \caption{Architecture of the servers that implement the Competing Consumers pattern.}
-    \label{fig:arch1}
-\end{figure}
-
-
-We use four AWS t2.micro instances to build the server side of the \emph{Competing consumers pattern}. We install MySQL in all of the four instances. We configure the instances as a cluster, where one instance (the \emph{master node}) receives queries from clients and distributes them either to itself or to the other three instances (\emph{slave nodes}). The Competing Consumers pattern only handles \texttt{INSERT} SQL queries. After inserting a client request into the specific instance (referred as to \emph{data node}), the master node will reply the client with a message (\emph{e.g,} ``Data inserted into Slave1'').
-Figure \ref{fig:arch1} illustrates the architecture of the servers, which implements the Competing consumers pattern.\\
-
-In the rest of this section, we elaborate three key points of the implementation of this pattern in terms of the data nodes' configuration, master node's implementation, and socket connection. Our source code in Java can be found at: \url{https://goo.gl/Ln8InQ}.
+In the rest of this section, we elaborate three key points of the implementation of this pattern in terms of the data nodes' configuration, master node's implementation, and socket connection. Our source code in Java can be found at: \url{???the-link???}.
 
 \subsubsection{Configuration of data nodes}
 We load \emph{Sakila} database into the 4 data nodes. The master node is responsible to balance work loads among the 4 data nodes, \emph{i.e.,} distributing and sending queries to itself or to the slave nodes.
@@ -141,45 +131,35 @@ For each client request, the master node will receive a string through the socke
 
 \texttt{200a3b9b-17a1-4808-b1ba-54d159ea4108+2006||INSERT INTO film (title, description, release\_year, language\_id) VALUES (\textquotesingle sample\_movie\textquotesingle, \textquotesingle This is just a test\textquotesingle, 2016, 1)}\\
 
-In the request, the client identifier and the SQL statement are separated by \texttt{||}. The master node parse the all letters and numbers (\emph{i.e.,} \texttt{[0-9a-z]}) in the client identifier to convert each of these characters to an ASCII decimal number and add all ASCII decimal numbers up. The result is noted as $DigitSum$. As there are 4 data nodes in the cluster, to balance the workload in these nodes, we divide $DigitSum$ by the number of data nodes (\emph{i.e.,} 4) and calculate the remainder, noted as $Rem$ (\emph{i.e.,} $DigitSum\%4=Rem$). $Rem$ is an integer ranged from 0 to 3. The master node will assign the request (by sending the SQL statement), where $Rem=0$, to itself; the request, where $Rem=1$, to slave node \#1; the request, where $Rem=2$, to slave node \#2; and the request, where $Rem=3$, to slave node \#3.\\
+In the request, the client identifier and the SQL statement are separated by \texttt{||}. The master node parse the all letters and numbers (\emph{i.e.,} \texttt{[0-9a-z]}) in the client identifier to convert each of these characters to an ASCII decimal number and sum all ASCII decimal numbers. The result is noted as $DigitSum$. As there are 4 data nodes i the cluster, to balance the workload in these nodes, we ivide $DigitSum$ by 4the numlculate the remainder, noted as $Rem$ (\emph{i.e.,} $DigitSum\%4=Rem$). $Rem$ is an integer ranged from 0 to 3. The master node will assign the request (by sending the SQL statement), where $Rem=0$, to itself; the request, where $Rem=1$, to slave node \#1; the request, where $Rem=2$, to slave node \#2; and the request, where $Rem=3$, to slave node \#3.\\
 
-We use Java Database Connectivity (JDBC) API to send MySQL queries from the master node to data nodes. We configure the port 3306 for the MySQL communication among the 4 data nodes.
+We use Java Database Connectivity (JDBC) API to send MySQL queries from the master node to slave nodes. We configure the port 3306 for the MySQL communication among the 4 data nodes.
 
 \subsubsection{Socket connection}
-We leverage a message queue to to build a communication channel between clients and data servers. When a client's request has passed through the message queue, we will receive this request, concatenate the client's UID with its \texttt{INSERT} request statement, and send it to the master node by the socket connection.\\
+We apply the GlassFish server to implement the message queue, which builds a communication channel between clients and data servers. When a client's request has passed through the message queue, we will receive this request, concatenate the client's UID with its \texttt{INSERT} request statement, and send it to the master node by the socket connection.\\
 
-In the socket connection, on the one hand, the client program establishes a socket connection object, which initialize a \texttt{DataOutputStream} object and a \texttt{DataInputStream} object. The client uses the \texttt{DataOutputStream} object to send the request (the client's UID + a SQL statement) to the master node, while the client uses the the \texttt{DataInputStream} to receive the response sent back by the master node.
+In the socket connection, on the one hand, the client program establishes a socket connection object, which initialize a \texttt{DataOutputStream} object and a \texttt{DataInputStream} object. The client uses the \texttt{DataOutputStream} object to send the request (the client's UID + a SQL statement) to the master node. It uses the the \texttt{DataInputStream} to receive the response sent back by the master node.
 
 On the other hand, the master node acts as the socket server, which runs a dead loop in order to wait for clients' requests. The master node uses a \texttt{DataInputStream} object to receive socket packets. One packet represents a client's request. The master node converts each of the packets into a \texttt{String} object (\emph{i.e.,} a request), then applied the mechanism described in Section \ref{master-node} to decide the request's priority and send it to the corresponding data node. Once a request is well inserted into the data node, the master node will reply to the client through a \texttt{DataOutputStream} object.\\
 
-Similar to the real web environment, if there is a socket connection error, the client will receive an error message. Then, the client can decide whether to re-send a request to the master node.
+Similar to the real web environment, if there is a socket connection error, the client will receive an error message. The client can decide whether to re-send a request to the master node.
 
 \subsection{Gatekeeper pattern}
 \subsubsection{Overview}
+We use 3 AWS t2.micro instances to build the server side of the \emph{Gatekeeper} pattern. The first instance refers as to the \emph{gatekeeper}, which filters out malicious information from all clients' requests. The second instance refers as to the \emph{trusted host}, which receives safe requests from the gatekeeper and send them to the database. The third instance refers as to the \emph{sensitive data node}, which handles clients' requests and send the result back to the trusted host. To ensure the confidentiality of the database, the sensitive data node can be only reached by the trusted host. And the trusted host can be only reached by the gatekeeper and the sensitive data node. Therefore, one client's request targeted to the sensitive data node will pass through the gatekeeper, trusted host, and handled by the the sensitive data node; then the results will be sent back by the sensitive data node through the trusted host and the gatekeeper to the client. Figure ??? illustrates the workflow ofarchvers, which implementshe Gatekeeper pattern.???\\
 
-\begin{figure}[t]
-    \centering
-        \includegraphics[width = \columnwidth]{images/gatekeeper.pdf}
-    \caption{Architecture of the servers that implement the Gatekeeper pattern.}
-    \label{fig:arch2}
-\end{figure}
-
-We use 3 AWS t2.micro instances to build the server side of the \emph{Gatekeeper} pattern. The first instance refers as to the \emph{gatekeeper}, which filters out malicious information from all clients' requests. The second instance refers as to the \emph{trusted host}, which receives safe requests from the gatekeeper and send them to the database. The third instance refers as to the \emph{sensitive data node}, which handles clients' requests and send the result back to the trusted host. To ensure the confidentiality of the database, the sensitive data node can be only reached by the trusted host. And the trusted host can be only reached by the gatekeeper and the sensitive data node. Therefore, one client's request targeted to the sensitive data node will pass through the gatekeeper, trusted host, and handled by the the sensitive data node; then the results will be sent back from the sensitive data node through the trusted host and the gatekeeper to the client. Figure \ref{fig:arch2} illustrates the architecture of the servers, which implements the Gatekeeper pattern.\\
-
-In the rest of this section, we elaborate three key points of the sensitive data node's configuration, the trusted host's configuration and implementation, and the gatekeeper's implementation. Our source code in Java can be found at: \url{https://goo.gl/Ges57T}.
+In the rest of this section, we elaborate three key points of the sensitive data node's configuration, the trusted host's configuration and implementation, and the gatekeeper's implementation. Our source code in Java can be found at: \url{???the-link???}.
 
 \subsubsection{Configuration of the sensitive data node}
-We configure the security rules (through AWS security group) and allow the instance of the sensitive data node to only accept the inbound TCP requests from the IP of the trusted host through the port 3306. Thus, other machines cannot directly send queries to the sensitive database.
+We configure the security rules (through AWS security group) and allow the machine of the sensitive data node to only accept the inbound TCP requests from the IP of the trusted host through the port 3306. Thus, other machines cannot directly send queries to the sensitive database.
 
 \subsubsection{Configuration and implementation of the trusted host}
-We configure the security rules and allow the instance of the trusted host to only accept the inbound requests from the IP of the gatekeeper through the port of 6666. Thus, only the gatekeeper can directly send a query to the trusted host, which can then transfer the query to the sensitive database.\\
+We configure the security rules and allow the machine of the trusted host to only accept the inbound requests from the IP of the gatekeeper through the port of 6666. Thus, only the gatekeeper can directly send a query to the trusted host, which can then transfer the query to the sensitive database.\\
 
-The trusted host applies a socket connection to exchange data with the gatekeeper. In this connection, the trusted host acts as a socket server, which runs a dead loop to wait for the gatekeeper's queries. While the gatekeeper acts as a socket client, which sends safe SQL queries to the trusted host and sends back the responses to clients.\\
+The trusted host applies a socket connection to exchange data with the gatekeeper. In this connection, the trusted host acts as the socket server, which runs a dead loop to wait for the gatekeeper's queries. While the gatekeeper acts as the socket client, which sendssafe SQL queries to the trusted host and sends ack the responses t clients.\\
 
-The trusted host uses JDBC API\footnote{\url{https://docs.oracle.com/javase/8/docs/technotes/guides/jdbc/}} to send MySQL queries, which are received from the gatekeeper, to the sensitive data node. The JDBC API will wait and receive the responses from the sensitive data node, and send them back to the gatekeeper.
-
-\subsubsection{Implementation of the gatekeeper node}
-The gatekeeper node receives \texttt{SELECT} or \texttt{INSERT} requests from clients. As in Section \ref{master-node}, the gatekeeper node parses a client request to extract her UID and the SQL query. It considers the requests, in which the UID with the first character as letters (\emph{i.e.,} \texttt{[a-z]}, ASCII code from 97 to 122) as safe requests, and will transfer them to the trusted host. Other requests are considered as malicious requests, and will be rejected by the gatekeeper node. \\
+The trusted host uses JDBC API to send MySQL queries, which are received from the gatekeeper, to the sensitive data node. The JDBC API will wait and receive the response from the sensitive data node, and send ithem back to the gatekeeper.                                                         ubsubsection{Implementation of the gatekeeper node}
+The gatekeeper node receives \texttt{SELECT} or \texttt{INSERT} requests from clients. As in Section \ref{master-node}, the gatekeeper node parses a client request to extract her UID and the SQL query. It considers the requests, in which the UID with the first character as letters (\emph{i.e.,} \texttt{[a-z]}, ASCII code from 97 to 122) as safe requests, and will transfer ot to the trusted host. Other requests are considered as malicious requests, and will be rejected by the gatekeeper node. \\
 
 To communicate with clients, there is another socket connection between the gatekeeper node and the client program. In this socket connection, the gatekeeper node acts as a socket server, while the client program acts as a socket client.
 
@@ -242,15 +222,15 @@ Table \ref{tab:ccp_performance} and Table \ref{tab:gatekeeper_performance} show 
 These results are not surprising, because for the two patterns, their scenario and concurrent clients are generated by the same machine. They also use the same GlassFish server to transform REST calls to the queries. Therefore, the two pattens need the same time to simulate concurrent client requests. 
 
 In addition, the speed of the network connection between clients and data nodes is much slower than the response speed of data nodes.
-Although there are four data nodes handling the SQL queries in the Competing consumers pattern, while there are only one data node handling the SQL queries in the Gatekeeper pattern, the total network connection time between clients and data nodes decides the execution time of our cloud service application.
+Although in the Competing consumers pattern, there are four data nodes handling the SQL queries, while there are only one data node handling the SQL queries in the Gatekeeper pattern, the total network connection time between clients and data nodes decides the execution time of an application of a cloud design pattern.
 
-Hence, when the network connection becomes the bottleneck of the speed of the service, higher number of concurrent clients needs higher number of total requests, which requires a larger amount of time to be executed.
+Hence, when the network connection becomes the bottleneck of the speed of the service, higher number of concurrent clients needs higher number of total requests, which need a larger amount of time to be executed.
 
-\section{What were the results of measuring energy consumption in the two cloud design patterns?}\label{Q6}
+\section{What were the results of measuring energy consumption in scenarios?}\label{Q6}
 \subsection{Setup}
 We also intend to compare the energy consumption of the Competing Consumers patterns against the Gatekeeper pattern. We use the same scenario and the same numbers of clients as in Section \ref{Q5}.\\
 
-We use a software-based energy measurement tool, PowerAPI \cite{noureddine2012preliminary}, to measure the energy consumption of the MySQL processes in terms of CPU in the data nodes. PowerAPI outputs the power of the subject process (in Watt) based on a certain sampling frequency. We use the frequency of 1 second to measure the power generated by the each MySQL process. We use the command line interface (CLI) of PowerAPI collect the CPU power with the frequency of 1 second as follow:
+We use the software-based energy measurement tool, PowerAPI \cite{}, to measure the energy consumption of the MySQL processes in terms of CPU in the data nodes. PowerAPI outputs the power of the subject process (in Watt) based on a certain sampling frequency. We use the frequency of 1 second to measure the power generated by the each MySQL process. We use the command line interface (CLI) of PowerAPI collect the CPU power with the frequency of 1 second 
 
 \texttt{./bin/powerapi modules procfs-cpu-simple monitor -{}-frequency 1000 \\-{}-apps mysqld}\\
 
@@ -260,13 +240,13 @@ Then, we use the following equation to calculate the energy consumed by the MySQ
 E(J) = P(W) \times t(s)
 \end{equation}
 
-where $E(J)$ stands for the energy consumption in Joule, $P(W)$ stands for the power of the process in Watt, and $t(s)$ stands for the time spent during each power collection.\\
+where E(J) stands for the energy consumption in Joule, $(W)$ tands for the power of the process in Watt, and $t()$ stnds for the time spent during each power collection.\\
 
-To ensure the precision of the energy consumption measurement, we start the PowerAPI CLI in each of the studied data nodes (four in the Competing Consumers pattern and one in the Gatekeeper pattern) before launching the pattern application. This approach would cause that PowerAPI runs one or two seconds earlier than the cloud pattern application. But according to our observation, PowerAPI can precisely evaluate the power generated by the subject process. Before launching a cloud pattern application, the PowerAPI always output 0 on the power generated by the data nodes in terms of the MySQL processes.
+To ensure the precision of the energy consumption measurement, we start the PowerAPI CLI in each of the studied data nodes (four in the Competing Consumers pattern and one in the Gatekeeper pattern) before launching the pattern application. This approach would cause that PowerAPI runs one or two seconds earlier than the cloud pattern application. But according to our observation, PowerAPI can precisely evaluate power generated by the subject process. Before launching a cloud pattern application, the PowerAPI always output 0 power generated by the data nodes in terms of the MySQL processes.
 
-We stop the PowerAPI CLI in each of the studied data nodes after the a cloud application scenario has been accomplished.
+We stop the PowerAPI CLI in each of the studied data nodes after the program of a cloud application has completed.
 
-Finally, we sum the energy consumed by the subject MySQL process in every second during the application's execution period to obtain the total energy consumed in a data node's CPU.
+Finally, we sum the energy consumed by the subject MySQL process in every second during the application's execution to obtain the total energy consumed in a data node in terms of CPU.
 
 
 \begin{table}[t]
@@ -306,22 +286,18 @@ Finally, we sum the energy consumed by the subject MySQL process in every second
 
 
 \subsection{Results}
-Table \ref{tab:ccp_energy} and Table \ref{tab:gatekeeper_energy} show the data nodes' energy consumption in terms of CPU for the Competing Consumers pattern and the Gatekeeper pattern according to our scenario. Figure \ref{fig:energy} compares the average energy consumption in the data nodes' CPUs (in the 5 runs) between the two patterns.\\
+Table \ref{tab:ccp_energy} and Table \ref{tab:gatekeeper_energy} show the data nodes' energy consumption in terms of CPU for the Competing Consumers pattern and the Gatekeeper pattern according to our scenario. Figure \ref{fig:energy} illustrates the average energy consumption in the data nodes' CPUs (in the 5 runs) of the two patterns.\\
 
 We observe that the data nodes of the Competing Consumers pattern consume significantly more energy than the data node of the Gatekeeper pattern. Because we only use one data node in the Gatekeeper pattern, while we use four data nodes in the Competing Consumers pattern. In addition, in the Gatekeeper pattern, the gatekeeper node refuse all request in which the UID begins with a number. In other words, about half of the requests are not reached to the data node, but are rejected by the gatekeeper node.
 
-In both cloud design patterns, the energy consumption tends to increase with the increase of the concurrent client numbers. In the Competing Consumers pattern, energy consumption increases linearly with the number of clients when the client number is from 25 to 75. But when the client number is from 75 to 100, the energy consumption only slightly increases. One explanation is that, based on the network connection capacity (among AWS instances) and the data nodes' MySQL processing capacity, the four data nodes in this pattern can handle up to $\frac{75\times100}{4}=1875$ requests per second. When the number of clients is more than 75, the network connection and the data nodes will reach their maximum capacity. Therefore, the increasing trend of the energy consumption tends to slow down with the increase of the number of clients. For the Gatekeeper pattern, the energy consumption tend to linearly increase with the increase of the number of clients. There is only a little difference of energy consumption between 25 clients and 50 clients in the Gatekeeper pattern, because Run \#2 of 25 clients is an outlier, which consume more than 100\% energy than other runs. In the future, we will eliminate outliers and use the median value of all runs to avoid this problem.
+In both cloud design patterns, the energy consumption tends to increase with the increase of the concurrent client numbers. In the Competing Consumers pattern, energy consumption increases linearly with the number of clients when the client number is from 25 to 75. But when the client number is from 75 to 100, the energy consumption only slightly increases. One explanation is that, based on the network connection capacity (among AWS instances) and the data nodes' MySQL processing capacity, the four data nodes in this pattern can handle up to $\frac{75\times100}{4}=1875$ requests per second. When the number of clients is more than 75, the network connection and the data nodes will reach their maximum capacity. Therefore, the increasing trend of the energy consumption tends to slow down with the increase of the number of clients. For the Gatekeeper pattern, the energy consumption almost linearly increases with the increase of the number of clients. There is only a little difference of energy consumption between 25 clients and 50 clients, because Run \#2 of 25 clients is an outlier, which consume more than 100\% energy her runs. In the future, we will eliminate outlier values and use the median value of all runs to avoid this problem.
 
 \section{Discussion and future work}
-In this project, we experienced a lot of failures when using the GlassFish server. Especially, if we set the number of concurrent clients more than 250, the failure rate significantly increases. We tried to tune the configuration of the GlassFish server on the thread pool size, and also to optimize MySQL on maximum connection and maximum timeout. But we still met failures when the client number is large. In addition, as we observed the linear increasing trend of the execution time of our applications with the increase of the client number, we may need about two hours to run a scenario with 1000 clients. 5 runs with 1000 clients for both patterns would require about 10 hours. Therefore, 5 runs for all client numbers would require 18.5 hours. If we experienced failures, the required time to accomplish the whole experiment will be even longer and unpredictable. Thus, with the limited time, we reduce the numbers of clients to 25, 50, 75, and 100. Our experimental client numbers may not represent concurrent requests received by a cloud service in the real-life. But our experiment can show preliminary results on the comparison of Competing Consumers pattern against Gatekeeper pattern in terms of performance and energy consumption. In order to show insight to cloud provider on the performance and energy consumption of cloud patterns, we need:\\
+In this project, we experienced a lot of failures when using the GlassFish server. Especially, if we set the number of concurrent clients more than 250, the failure rate significantly increases. We tried to tune the configuration of the GlassFish server in terms of the thread pool, and also to optimize MySQL on maximum connection and maximum timeout. But we still met failures with a largheclient number is lardition, as we observed the linear increasing trend of the execution time of our applications with the increase of the client number, we may need about two hours to run a scenario with 1000 clients. 5 runs with 1000 clients for both patterns would needrequire aboutrs. Therefore, 5 runs for all client numbers would require 18.5 hours. If we experienced failures, the required time to accomplish the whole experiment will be even longer and unpredictable. Thus, with the limited time, we reduce the numbers of clients to 25, 50, 75, and 100. Our experimental client numbers may not represent concurrent requests received by a cloud service in the real-life. But to simulate a real-life scenario, we should first deploy our cloud pattern applications in the machines with better performance than AWS t2.micro. \\
 
-\begin{itemize}
-\item Deploy our cloud pattern applications in the machines with better performance than AWS t2.micro.
-\item Consider to replace the GlassFish server with newer resolutions to obtain a higher stability. 
-\item Adjust our experimental scenario. Because in the real-life, a client cannot generate 100 requests without any interval like a robot. In the future, we plan add some interval time to more closely simulate a client's consecutive queries. 
-\item Optimize the performance metric. The total application execution time may not be the best metric to measure the performance of a cloud pattern. In the future, we need to measure the amount of time spent for each query from the it is sent from the client side until the client receives the response. Then we can calculate the average or median response time of all queries of all clients. This result can better reflect a cloud service's performance.
-\item Improve the measurement of energy consumption. Although PowerAPI is a popularly used tool, it cannot fresh the power generated of a specific process with a high frequency. In the future, we need to compare the energy consumption results measured by a software-based tool with a hard-ware based tool. Another issue about the energy consumption is that not only CPU consumes energy when handling a SQL query. Other component in a machine, such as memory, network card also need energy to accomplish the query. In addition, as we use AWS's virtual machine to deploy our cloud pattern applications, PowerAPI's output may not reflect the real energy consumption of the physical machines. This gives us another reason to compare the results yielded by PowerAPI and other hardware-based energy measurement tool. To apply hardware-based energy measurement tool the energy consumption, we also need to deploy the cloud applications in our own physical machines. 
-\end{itemize}
+We should also consider to replace the GlassFish server with newer resolutions to obtain a higher stability. In addition, we may also need to adjust our experimental scenario. Because in the real-life, a client cannot generate 100 requests without any interval like a robot. In the future, we plan add some interval time to more closely simulate a client's consecutive queries. Moreover, the total application execution time may not the best metric to measure the performance of a cloud pattern. In the future, we need to measure the amount of time for each query from the it is sent from the client side until the client receives the response. Then we can calculate the average or median response time of all queries of all clients. This result can better reflect a cloud service's performance. \\
+
+Regarding the measurement of the energy consumption, although PowerAPI is a popularly used tool, it cannot fresh the power generated of a specific process with a high frequency. In the future, we need to compare the difference of energy consumption measured by a software-based tool with a hard-ware based tool. Another issue about the energy consumption is that not only CPU consumes eergy to completewhen handliy. Other component in a machine, such as memory, network card also need energy to accomplish the query. In addition, as we use AWS's virtual machine to deploy our cloud pattern applications, PowerAPI's output may not reflect the real energy consumption of the physical machines. This gives us another reason to compare the results yielded by PowerAPI and other hardware-based energy measurement tool. To apply hardware-based energy measurement tool the energy consumption, we also need to deploy the cloud applications in our own physical machines. 
 
 \bibliographystyle{IEEEtran}
 \bibliography{references}
