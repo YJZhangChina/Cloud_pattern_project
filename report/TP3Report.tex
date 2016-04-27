@@ -206,8 +206,16 @@ To communicate with clients, there is another socket connection between the gate
 
 The main goal of a multi-threaded application is to allow the application to run mulitple processes at a given time.  In the case of our application, the goal of the threads is to send multiple requests at the same time. This way, we are able to simulate very high traffic from a single machine. 
 
-The ClientThreadMQ.java inherits the Java Thread class. This built-in class allows the application to have several threads of executions running concurently ~\cite{threads_java}. We call the start() method from our ClientThreadMQ class to start the desired number of threads. Here, one thread represents one client. Once our threads are started, we use our overwritten version of the run() method to start the processes. Run() will execute the scenario stated in the TP instruction. Each thread sends five \texttt{SELECT} queries, waits five seconds, sends another 100 \texttt{SELECT} queries, waits five seconds, and ends by sending 5 \texttt{INSERT} queries. 
+The ClientThreadMQ.java inherits the Java Thread class. This built-in class allows the application to have several threads of executions running concurently ~\cite{threads_java}. We call the start() method from our ClientThreadMQ class to start the desired number of threads. Here, one thread represents one client. Once our threads are started, we use our overwritten version of the run() method to start the processes. Run() will execute the scenario stated in the TP instruction. In the scenario, each thread does the following actions five times. 
 
+
+\begin{itemize}
+	\item Send five \texttt{SELECT} queries.
+	\item Wait five seconds.
+	\item Send 100  \texttt{SELECT} queries.
+	\item Wait five seconds.
+	\item Send 5 \texttt{INSERT}queries.
+\end{itemize}
 
 
 
