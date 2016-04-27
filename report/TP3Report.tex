@@ -197,11 +197,14 @@ To communicate with clients, there is another socket connection between the gate
 
 \section{Describe the implementation of multi-threaded application scenarios.}\label{Q4}
 
-???MY COMMENTS: We don't iterate resolutions about how to make a multithreading application. We need to describe how we (in fact, it's Amir or Benjamin) implement it in the program. The program has been written, and you need to understand it and explain. Check my previous emails about the Java Thread class. The ClientThreadMQ inherits this class and implement the multithreading.???
+%???MY COMMENTS: We don't iterate resolutions about how to make a multithreading application. We need to describe how we (in fact, it's Amir or Benjamin) implement it in the program. The program has been written, and you need to understand it and explain. Check my previous emails about the Java Thread class. The ClientThreadMQ inherits this class and implement the multithreading.???
 
-The main goal of a multi-threaded application is to allow the application to run mulitple processes at a given time. One way to create threads is to use the BackgroundWorker component --cite!!. This worker controls a separate thread that will take care of managing the future threads in the application. 
+The main goal of a multi-threaded application is to allow the application to run mulitple processes at a given time.  In the case of our application, the goal of the threads is to send multiple requests at the same time. This way, we are able to simulate very high traffic from a single machine. 
 
-In the case of our application, the goal of the threads is to send multiple requests at the same time. This way, we are able to simulate very high traffic from a single machine. 
+The ClientThreadMQ.java inherits the Java Thread class. This built-in class allows the application to have several threads of executions running concurently ~\cite{threads_java}. We call the start() method from our ClientThreadMQ class to start the desired number of threads. Here, one thread represents one client. Once our threads are started, we use our overwritten version of the run() method to start the processes. Run() will execute the scenario stated in the TP instruction. Each thread sends five \texttt{SELECT} queries, waits five seconds, sends another 100 \texttt{SELECT} queries, waits five seconds, and ends by sending 5 \texttt{INSERT} queries. 
+
+
+
 
 
 \section{What were the results of comparing the patterns in terms of performance? Were any of the results surprising, why or why not?}\label{Q5}
