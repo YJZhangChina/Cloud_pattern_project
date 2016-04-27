@@ -121,15 +121,15 @@ On the one hand, the response time of the standalone MySQL node decreases with t
 
 \section{When and why should we use The Gatekeeper and Competing Consumers patterns?}\label{Q2}
 \subsection{Competing Consumers pattern}
-The Competing Consumer Pattern aims at enhancing the stability and availability for variable amount of requests \cite{ccp_microsoft}. This pattern is an efficient scalable solution for an application with a highly variable workload. The pattern will allow the application to balance the workload during periods of high demand.\\
+The Competing Consumer Pattern aims at enhancing the stability and availability for variable amount of requests \cite{homer2014cloud}. This pattern is an efficient scalable solution for an application with a highly variable workload. The pattern will allow the application to balance the workload during periods of high demand.\\
 
-We should use this pattern when the workload for an application is highly variable and the whole workload can be divided into sub-tasks, which can run asynchronously. In other words, sub-tasks do not need to be performed with a specific sequence. \cite{ccp_microsoft}\\
+We should use this pattern when the workload for an application is highly variable and the whole workload can be divided into sub-tasks, which can run asynchronously. In other words, sub-tasks do not need to be performed with a specific sequence. \cite{homer2014cloud}\\
 
 \subsection{Gatekeeper pattern}
-The Gatekeeper pattern aims at keeping sensitive information safe \cite{gk_microsoft}. This pattern can help prevent malicious users from obtaining confidential from the database and from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to apply a dedicated machine, \emph{i.e.,} the \emph{gatekeeper}, that acts as a broker between clients and the application or service. The gatekeeper filters out malicious requests and prevent them from directly accessing to the database. End users can only see the gatekeeper and cannot see the functionalities or gain unrestrained access to sensitive data. \\
+The Gatekeeper pattern aims at keeping sensitive information safe \cite{homer2014cloud}. This pattern can help prevent malicious users from obtaining confidential from the database and from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to apply a dedicated machine, \emph{i.e.,} the \emph{gatekeeper}, that acts as a broker between clients and the application or service. The gatekeeper filters out malicious requests and prevent them from directly accessing to the database. End users can only see the gatekeeper and cannot see the functionalities or gain unrestrained access to sensitive data. \\
 
 We should use this pattern when our application stores sensitive data,
-or when we have distributed applications where it is necessary to perform request validations separately from the main tasks. We can also apply this pattern to centralize request validations to simplify maintenance and administration \cite{gk_microsoft}.
+or when we have distributed applications where it is necessary to perform request validations separately from the main tasks. We can also apply this pattern to centralize request validations to simplify maintenance and administration \cite{homer2014cloud}.
 
 
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
