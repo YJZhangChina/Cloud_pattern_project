@@ -12,10 +12,16 @@
 	- For the Gatekeeper pattern, we implement two classes ```Gatekeeper.java``` and ```TrustedHost.java``` to respectively deploy in the gatekeeper node and in the trusted host node.
 		- **Gatekeeper.java**: connects clients and the trusted host. It can send queries from clients to the trusted host, and send back the response from the trusted host to clients.
 		- **TrustedHost.java**: connects the gatekeeper and the sensitive data. I can send queries from the gatekeeper to the sensitive database, and send back the database's response to the gatekeeper.
+- **pattern_measurement** folder contains output of PowerAPI for each number of clients and a script to parse the results.
 
 ### How should I run these programs? ###
-- **???**
-	- ???
+- **Competing Consumers pattern**
+	1. Run the GlassFish server.
+	2. Start MySQL for all data nodes.
+	3. Compile and run ```SocketServer.java``` in the master data node.
+	4. Fill the **MASTER_IP** as the master data node's public IP in the ```SocketConnection.java``` of the client side code.
+	5. Change the **numberOfClients** variable to the subject client number in ```CompetingConsumersMQ.java```.
+	6. Compile and run ```CompetingConsumersMQ.java```.
 	
 ### Contact ###
 
