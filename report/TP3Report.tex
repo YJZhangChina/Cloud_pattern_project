@@ -124,7 +124,7 @@ On the one hand, the response time of the standalone MySQL node decreases with t
 The Competing Consumer Pattern aims at enhancing the stability and availability for variable amount of requests \cite{ccp_microsoft}. This pattern is an efficient scalable solution for an application with a highly variable workload. The pattern will allow the application to balance the workload during periods of high demand. \\
 
 \subsection{Gatekeeper pattern}
-The Gatekeeper pattern aims at keeping sensitive information safe \cite{gk_microsoft}. We use this pattern to prevent malicious user from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to apply a dedicated machine that filters the requests and prevent direct access to the database. End users can only see the gatekeeper and cannot see the functionalities or gain unrestrained access to sensitive data. 
+The Gatekeeper pattern aims at keeping sensitive information safe \cite{gk_microsoft}. We use this pattern to prevent malicious users from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to apply a dedicated machine that filters the requests and prevent direct access to the database. End users can only see the gatekeeper and cannot see the functionalities or gain unrestrained access to sensitive data. 
 
 
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
