@@ -47,7 +47,7 @@ For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AW
 
 
 
-The following table display the results of our benchmarking process. As you can see, we ran each thread and each request for 5 time. The top half of the tables represent the response time for 5,000 requests, while the bottom part represents the response time for 10,000 requets. 
+The following table display the results of our benchmarking process. We ran each thread and each request for 5 time. The top half of the tables represent the response time for 5,000 requests, while the bottom part represents the response time for 10,000 requets. 
 
 \begin{table}[]
 	\centering
@@ -103,7 +103,7 @@ The following table display the results of our benchmarking process. As you can 
 
  The following Graph \ref{fig:1} and Graph \ref{fig:2} show the performance in term of response time of both MySQL and MySQL cluster for 1, 2, 4, 8, 16, 32, 64 threads. Graph \ref{fig:1} shows the response time for 5000 requests while the second shows the response time for 10000 requests. Surprisingly, the standard, single node, MySQL database performed much better than the MySQL cluster. This is due to the fact that the cluster loses a lot of time retrieving its data in the different node, while the single MySQL database has its data stored locally. 
  
- 
+ The MySQL Cluster's execution times varies highly with the number of threads. We were surprised to notice that the response time increases after 16 threads. We concluded that the database reaches a saturation point, meaning it has difficulties handling the increase in requests per seconds.
   
   
   
