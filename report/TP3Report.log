@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  27 APR 2016 09:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  27 APR 2016 09:28
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1116,13 +1116,6 @@ LaTeX Warning: No positions in optional float specifier.
 
 {/usr/local/texlive/2015/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
 [2]
-! Too many }'s.
-l.122 ...r three data node instances (slave nodes}
-                                                  ). The Competing Consumers...
-You've closed more groups than you opened.
-Such booboos are generally harmless, so keep going.
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 122--123
 
  []
