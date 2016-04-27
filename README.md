@@ -40,7 +40,7 @@
 	2. Modify the credential regarding the database in the script.
 	3. Install sysbench on your instance with: sudo apt-get install sysbench
 	4. If you are benchmarking a Cluster, you will need to delete /etc/my.cnf and recreate it.
-	5. Run the script wiht '''python benchmark.py''' or '''python benchmarkCluster.py'''
+	5. Run the script wiht ```python benchmark.py``` or ```python benchmarkCluster.py```
 	6. The output is being printed to a file, which you can SCP to your own machine.
 	
 ### Contact ###
