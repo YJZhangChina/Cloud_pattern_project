@@ -17,11 +17,20 @@
 ### How should I run these programs? ###
 - **Competing Consumers pattern**
 	1. Run the GlassFish server.
-	2. Start MySQL for all data nodes.
-	3. Compile and run ```SocketServer.java``` in the master data node.
-	4. Fill the **MASTER_IP** as the master data node's public IP in the ```SocketConnection.java``` of the client side code.
+	2. Start MySQL in all data nodes.
+	3. Compile and run ```SocketServer.java``` in the master node.
+	4. Fill the **MASTER_IP** as the master node's public IP in the ```SocketConnection.java``` of the client side code.
 	5. Change the **numberOfClients** variable to the subject client number in ```CompetingConsumersMQ.java```.
 	6. Compile and run ```CompetingConsumersMQ.java```.
+- **Gatekeeper pattern**
+	1. Configure the security rule (in AWS security groups) to restrict that the sensitive data node only accept MySQL connection from the trusted host node, and the trusted host only accept TCP connection from the gatekeeper node.
+	2. Run the GlassFish server.
+	3. Start MySQL in the sensitive data node.
+	4. Compile and run ```TrustedHost.java``` in the trusted host node.
+	5. Compile and run ```Gatekeeper.java``` in the gatekeeper node.
+	6. Fill the **GATEKEEPER_IP** as the gatekeeper node's public IP in the ```DataQuery.java``` of the client side code.
+	7. Change the **numberOfClients** variable to the subject client number in ```GatekeeperMQ.java```.
+	8. Compile and run ```GatekeeperMQ.java```.
 	
 ### Contact ###
 
