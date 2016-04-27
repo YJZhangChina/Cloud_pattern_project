@@ -195,6 +195,12 @@ To communicate with clients, there is another socket connection between the gate
 
 \section{Describe the implementation of multi-threaded application scenarios.}\label{Q4}
 
+
+The main goal of a multi-threaded application is to allow the application to run mulitple processes at a given time. One way to create threads is to use the BackgroundWorker component --cite!!. This worker controls a separate thread that will take care of managing the future threads in the application. 
+
+In the case of our application, the goal of the threads is to send multiple requests at the same time. This way, we are able to simulate very high traffic from a single machine. 
+
+
 \section{What were the results of comparing the patterns in terms of performance? Were any of the results surprising, why or why not?}\label{Q5}
 
 \subsection{Setup}
