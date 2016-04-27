@@ -120,10 +120,11 @@ On the one hand, the response time of the standalone MySQL node decreases with t
   
 
 \section{When and why should we use The Gatekeeper and Competing Consumers patterns?}\label{Q2}
+\subsection{Competing Consumers pattern}
+The Competing Consumer Pattern aims at enhancing the stability and availability for variable amount of requests \cite{ccp_microsoft}. This pattern is an efficient scalable solution for an application with a highly variable workload. The pattern will allow the application to balance the workload during periods of high demand. \\
 
-The Competing Consumer Pattern is a cloud pattern that is meant to assure stability and availability for variable amount of requests. This pattern is a great scalable solution for an application with a highly variable workload.  The pattern will allow the application to balance the workload duriing periods of high demand. 
-
-The Gatekeeper pattern is a pattern that has for purpose to keep sensitive information safe. We should use this pattern to prevent malicious user from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to have an instance that will filter the requests and prevent direct access to the database. The end users will only see the gatekeeper and will not be able to see the functionalities or gain unrestrained access to sensitive data. 
+\subsection{Gatekeeper pattern}
+The Gatekeeper pattern aims at keeping sensitive information safe \cite{gk_microsoft}. We should use this pattern to prevent malicious user from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to apply a dedicated machine that filters the requests and prevent direct access to the database. End users can only see the gatekeeper and cannot see the functionalities or gain unrestrained access to sensitive data. 
 
 \section{Describe your solutions to implement the two Cloud patterns strategies.}\label{Q3}
 \subsection{Competing Consumers pattern}
