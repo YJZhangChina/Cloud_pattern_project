@@ -35,6 +35,13 @@
 	6. Fill the **GATEKEEPER_IP** as the gatekeeper node's public IP in the ```DataQuery.java``` of the client side code.
 	7. Change the **numberOfClients** variable to the subject client number in ```GatekeeperMQ.java```.
 	8. Compile and run ```GatekeeperMQ.java```.
+- **Benchmark**
+	1. SCP the script (benchmarkCluster.py or benchmark.py) to the correct instance (master/sql node in the case of the MySQL cluster).
+	2. Modify the credential regarding the database in the script.
+	3. Install sysbench on your instance with: sudo apt-get install sysbench
+	4. If you are benchmarking a Cluster, you will need to delete /etc/my.cnf and recreate it.
+	5. Run the script wiht '''python benchmark.py''' or '''python benchmarkCluster.py'''
+	6. The output is being printed to a file, which you can SCP to your own machine.
 	
 ### Contact ###
 
