@@ -1,5 +1,5 @@
 report/TP3Report.pdf
-report/TP3Report.bbl
-report/TP3Report.blg
-report/TP3Report.synctex
-report/TP3Report.aux
+*.bbl
+*.blg
+*.synctex
+*.aux
