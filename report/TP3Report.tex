@@ -202,24 +202,22 @@ To communicate with clients, there is another socket connection between the gate
 
 \section{Describe the implementation of multi-threaded application scenarios.}\label{Q4}
 
-%???MY COMMENTS: We don't iterate resolutions about how to make a multithreading application. We need to describe how we (in fact, it's Amir or Benjamin) implement it in the program. The program has been written, and you need to understand it and explain. Check my previous emails about the Java Thread class. The ClientThreadMQ inherits this class and implement the multithreading.???
-
-The main goal of a multi-threaded application is to allow the application to run mulitple processes at a given time.  In the case of our application, the goal of the threads is to send multiple requests to our database at the same time. This way, we are able to simulate very high traffic from a single machine. \\
+The main goal of a multi-threaded application is to allow the application to run multiple processes at a given time.  In the case of our application, the goal of the threads is to simulate multiple concurrent clients who send queries to our database. Hence, we can simulate a high traffic communication channel between clients and the cloud pattern applications from a single machine. \\
 
 
 \begin{figure}[t]
 	\centering
-	\includegraphics[width = \columnwidth]{images/threadSchema.jpg}
-	\caption{Graphical representation of the thread class.}
+	\includegraphics[width = 11cm]{images/threadSchema.jpg}
+	\caption{Graphical representation of the Java \texttt{Thread} class.}
 	\label{fig:Thread Schema}
 \end{figure}
 
 
-The graph in figure \ref{fig:Thread Schema} depicts the life cycle of a thread in the thread class. A new (or multiple) thread(s) are started in \textit{New}. In our case, we create one thread for each client we need for our application. We then call Start() to make the threads runnable, which means the thread is ready to run the given tasks. We then call our overwritten version of run() to execute our scenario in each thread. After that, the thread can either wait or be terminated.  \\ 
+Figure \ref{fig:Thread Schema} depicts the life cycle of a thread in the thread class. A new (or multiple) thread(s) are started in \textit{New}. In our case, we create one thread for each client we need for our application. We then call \texttt{start()} to make the thread runnable, which means the thread is ready to run the given tasks. We then call our overwritten version of \texttt{run()} to execute our scenario in each thread. After that, the thread can either wait or be terminated.  \\ 
 
-The ClientThreadMQ.java inherits the Java Thread class. This built-in class allows the application to have several threads of executions running concurently ~\cite{threads_java}. We call the start() method from our ClientThreadMQ class to start the desired number of threads. Here, one thread represents one client to be simulated. Once our threads are started, we use our overwritten version of the run() method to start the processes. Run() will execute the scenario stated in the TP instruction. In the scenario, each thread does the following actions five times. \\
+Our client side classes \texttt{CompetingConsumersMQ.java} and  \texttt{GatekeeperMQ.java} inherit the Java \texttt{Thread} class. This built-in class allows the application to have several threads of executions running concurently ~\cite{threads_java}. We call the \texttt{start()} method from our \texttt{CompetingConsumersMQ.java} (or \texttt{GatekeeperMQ.java}) class to start the desired number of threads. Here, one thread represents one client to be simulated. Once our threads are started, we use our overwritten version of the \texttt{run()} method to start the processes. \texttt{run()} will execute the scenario stated in the TP instruction. In the scenario, each thread does the following actions five times. \\
 
-This scenario is meant to simulate a typical use of our application. A client looks up five movies in our database, thinks for a few second, then searches another 100 movies. After that, the client wait another 5 seconds before adding 5 movies to our database. 
+This scenario is meant to simulate a client's movie renting process: the client looks up five movies in our database, thinks for a five second, then searches another 100 movies. After that, the client wait another five seconds before adding 5 movies into our database.\footnote{For the Competing Consumers pattern, clients only perform movie adding activities.}
 
 
 \section{What were the results of comparing the patterns in terms of performance? Were any of the results surprising, why or why not?}\label{Q5}
