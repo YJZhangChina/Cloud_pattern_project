@@ -202,7 +202,7 @@ To communicate with clients, there is another socket connection between the gate
 
 \section{Describe the implementation of multi-threaded application scenarios.}\label{Q4}
 
-The main goal of a multi-threaded application is to allow the application to run multiple processes simultaneously.  In the case of our application, the goal of the threads is to simulate multiple concurrent clients who send queries to our database. Hence, we can simulate a high traffic communication channel between clients and the cloud pattern applications from a single machine. \\
+The main goal of a multi-threaded application is to allow the application to run multiple processes simultaneously.  In the case of our application, the goal of the threads is to simulate multiple concurrent clients who send queries to our database. Hence, we can simulate a high traffic communication channel between clients and a cloud pattern application from a single machine. \\
 
 
 \begin{figure}[t]
@@ -213,7 +213,7 @@ The main goal of a multi-threaded application is to allow the application to run
 \end{figure}
 
 
-Figure \ref{fig:Thread Schema} depicts the life cycle of a thread in the thread class. A new (or multiple) thread(s) are put into a pool in \textit{New}. In our case, we create one thread for each client we need for our application. We then call \texttt{start()} to make the thread runnable, which means the thread is ready to run the given tasks. We then call our overwritten version of \texttt{run()} to execute our scenario in each thread. After that, the thread can either wait or be terminated.  \\ 
+Figure \ref{fig:Thread Schema} depicts the life cycle of a thread in the Java \texttt{Thread} class. A new (or multiple) thread(s) are put into a pool in \textit{New}. In our case, we create one thread for each client we need for our application. We then call \texttt{start()} to make the thread runnable, which means the thread is ready to run the given tasks. We then call our overwritten version of \texttt{run()} to execute our scenario in each thread. After that, the thread can either wait or be terminated.  \\ 
 
 Our client side classes \texttt{CompetingConsumersMQ.java} and  \texttt{GatekeeperMQ.java} inherit the Java \texttt{Thread} class. This built-in class allows the application to have several threads of executions running concurently ~\cite{threads_java}. We call the \texttt{start()} method from our \texttt{CompetingConsumersMQ.java} (or \texttt{GatekeeperMQ.java}) class to put the desired number of threads in the pool. Here, one thread represents one client to be simulated. Once our threads are started, we use our overwritten version of the \texttt{run()} method to start the processes. \texttt{run()} will execute the scenario stated in the TP instruction. \\
 
