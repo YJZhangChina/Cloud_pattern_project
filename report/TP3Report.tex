@@ -106,7 +106,7 @@
 
 
 
-\section{What were the results of comparing MySQL to MySQL Cluster. Were any of the results surprising, why or why not?}\label{Q1}
+\section{What were the results of comparing MySQL to MySQL cluster. Were any of the results surprising, why or why not?}\label{Q1}
 \subsection{Setup}
 For the sake of comparing MySQL to MySQL Cluster, we set up both databases on AWS EC2 t2.micro instances. The MySQL database is installed on a single instance, while the MySQL cluster is setup on a set of four different instances. In the cluster, one instance holds the management and the MySQL node, while the other three instances hosts the data nodes. We benchmark and compare both databases using SysBench\footnote{\url{https://launchpad.net/sysbench}}. We use 5,000 and 10,000 requests to measure the databases' response time. For each number of requests, we run respectively 1, 2, 3, 4, 8, 16, 32, and 64 threads simultaneously. For each number of threads with each number of requests, we run five times and calculate the average response time.
 
@@ -116,17 +116,17 @@ Table \ref{tab:standalone} and Table \ref{tab:cluster} respectively display the 
 
 We observe that the standalone MySQL database outperforms the MySQL cluster. This results was expected, because the cluster loses a lot of time querying data in the different nodes through network, while the standalone MySQL database has its data stored locally. In addition, the MySQL cluster also spends time to synchronize and replicate data among the data nodes.
 
-On the one hand, the response time of the standalone MySQL node decreases with the increase of the number of threads. In other words, higher number of threads helps shorten the response time (\emph{i.e.,} increase the performance) of the the standalone MySQL node. On the other hand, the MySQL cluster's response time decreases with increase of the the number of threads when the thread number is less than 16. When the thread number is greater than 16, the response time increases with the increase of the thread number. One explanation is that the cluster database reaches a saturation point when the thread number is greater than 16. Hence the cluster has difficulties handling the increase in requests per second. In the future, we will replicate the experiment in computers with higher performance than AWS t2.micro to validate our results.
+On the one hand, the response time of the standalone MySQL node decreases with the increase of the number of threads. These results imply that higher number of threads helps shorten the response time (\emph{i.e.,} increase the performance) of the the standalone MySQL node. On the other hand, the MySQL cluster's response time decreases with increase of the the number of threads when the thread number is less than 16. When the thread number is greater than 16, the response time increases with the increase of the thread number. One explanation is that the cluster database reaches a saturation point when the thread number is greater than 16. Hence the cluster has difficulties handling the increase in requests per second. In the future, we will replicate the experiment in computers with higher performance than AWS t2.micro to validate our results.
   
 
 \section{When and why should we use The Gatekeeper and Competing Consumers patterns?}\label{Q2}
 \subsection{Competing Consumers pattern}
-The Competing Consumer Pattern aims at enhancing the stability and availability for variable amount of requests \cite{homer2014cloud}. This pattern is an efficient scalable solution for an application with a highly variable workload. The pattern will allow the application to balance the workload during periods of high demand.\\
+The Competing Consumers Pattern aims at enhancing the stability and availability for variable amount of requests \cite{homer2014cloud}. This pattern is an efficient scalable solution for an application with a highly variable workload. The pattern will allow the application to balance the workload during periods of high demand.\\
 
 We should use this pattern when the workload for an application is highly variable and the whole workload can be divided into sub-tasks, which can run asynchronously. In other words, sub-tasks do not need to be performed with a specific sequence. \cite{homer2014cloud}\\
 
 \subsection{Gatekeeper pattern}
-The Gatekeeper pattern aims at keeping sensitive information safe \cite{homer2014cloud}. This pattern can help prevent malicious users from obtaining confidential from the database and from injecting wrongful SQL commands to our database, which could compromise the application. The basic concept is to apply a dedicated machine, \emph{i.e.,} the \emph{gatekeeper}, that acts as a broker between clients and the application or service. The gatekeeper filters out malicious requests and prevent them from directly accessing to the database. End users can only see the gatekeeper and cannot see the functionalities or gain unrestrained access to sensitive data. \\
+The Gatekeeper pattern aims at keeping sensitive information safe \cite{homer2014cloud}. This pattern can help prevent malicious users from obtaining confidential data from the database and from injecting harmful SQL commands to a sensitive database. The basic concept is to apply a dedicated machine, \emph{i.e.,} the \emph{gatekeeper}, that acts as a broker between clients and the application or service. The gatekeeper filters out malicious requests and prevent them from directly accessing to the database. End users can only see the gatekeeper and cannot see the functionalities or gain unrestrained access to sensitive data. \\
 
 We should use this pattern when our application stores sensitive data,
 or when we have distributed applications where it is necessary to perform request validations separately from the main tasks. We can also apply this pattern to centralize request validations to simplify maintenance and administration \cite{homer2014cloud}.
