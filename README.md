@@ -13,7 +13,7 @@
 		- **Gatekeeper.java**: connects clients and the trusted host. It can send queries from clients to the trusted host, and send back the response from the trusted host to clients.
 		- **TrustedHost.java**: connects the gatekeeper and the sensitive data. I can send queries from the gatekeeper to the sensitive database, and send back the database's response to the gatekeeper.
 - **pattern_measurement** folder contains output of PowerAPI for each number of clients and a script to parse the results.
-- **MySQL_benchmark** This folder contains all the files related to the steps we took to benchmark the standalone MySQL db and our MySQL cluster. You will find:
+- **MySQL_benchmark** folder contains all the files related to the steps we took to benchmark the standalone MySQL db and our MySQL cluster. You will find:
 	- An Excel table containing the results of the benchmarking.
 	- A file describing the steps we took to setup the cluster.
 	- A folder containing the scripts used to benchmark our databases and the raw outputs.
@@ -36,12 +36,12 @@
 	7. Change the **numberOfClients** variable to the subject client number in ```GatekeeperMQ.java```.
 	8. Compile and run ```GatekeeperMQ.java```.
 - **Benchmark**
-	1. SCP the script (benchmarkCluster.py or benchmark.py) to the correct instance (master/sql node in the case of the MySQL cluster).
+	1. Copy the script (benchmarkCluster.py or benchmark.py) to the correct instance (master/SQL node in the case of the MySQL cluster).
 	2. Modify the credential regarding the database in the script.
-	3. Install sysbench on your instance with: sudo apt-get install sysbench
-	4. If you are benchmarking a Cluster, you will need to delete /etc/my.cnf and recreate it.
-	5. Run the script wiht ```python benchmark.py``` or ```python benchmarkCluster.py```
-	6. The output is being printed to a file, which you can SCP to your own machine.
+	3. Install SysBench on the SQL node with: ```sudo apt-get install sysbench```.
+	4. When benchmarking a cluster, you will need to delete ```/etc/my.cnf``` and recreate it.
+	5. Run the script with ```python benchmark.py``` or ```python benchmarkCluster.py```
+	6. The results will be outputted to a file.
 	
 ### Contact ###
 
