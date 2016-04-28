@@ -41,7 +41,7 @@
 	3. Install SysBench on the SQL node with: ```sudo apt-get install sysbench```.
 	4. When benchmarking a cluster, you will need to delete ```/etc/my.cnf``` and recreate it.
 	5. Run the script with ```python benchmark.py``` or ```python benchmarkCluster.py```
-	6. The results will be outputted to a file.
+	6. The results will be outputted to the file ```output.txt```.
 	
 ### Contact ###
 
